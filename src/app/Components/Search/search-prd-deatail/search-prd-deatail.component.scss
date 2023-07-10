@@ -1,0 +1,144 @@
+$color1: #effff8;
+$color2: #50b897;
+$color3: #10857f;
+
+@mixin margin1() {
+    margin: 5% auto 3% auto;
+}
+
+main {
+    min-height: 79.9vh;
+
+    .Top {
+        width: 95%;
+        @include margin1();
+        min-height: 760px;
+        background-color: white;
+        border-radius: 20px;
+
+        .Left {
+            width: 40%;
+            height: auto;
+            margin: auto;
+            float: left;
+            // background-color: aquamarine;
+
+            .carousel {
+                width: 90%;
+                margin: 25px auto auto auto;
+                // background-color: blueviolet;
+            }
+        }
+
+        .Right {
+            width: 60%;
+            height: auto;
+            margin: auto;
+            float: right;
+
+            // background-color: aqua;
+            .Body {
+                width: 90%;
+                margin: 25px auto auto auto;
+
+                // background-color: rgb(255, 218, 249);
+                #medName {
+                    // font-family: 'Montserrat Alternates', sans-serif;
+                    font-size: 30px;
+                }
+
+                #minOrder {
+                    background-color: rgb(255, 245, 155);
+                    width: 400px;
+                    border-radius: 3px;
+                    margin: 10px 0px;
+                    padding: 2px;
+
+                    a {
+                        float: right;
+                    }
+                }
+
+                .cart {
+                    background-color: $color3;
+                    color: white;
+                    font-size: 16px;
+                    padding: 10px 20px;
+                    margin: 30px 0px 10px 0px;
+                }
+            }
+        }
+
+        .memberOffer {
+            margin-top: 23px;
+            border: 1px solid #f757a4;
+            border-radius: 10px 10px 0px 0px;
+
+            .images {
+                .carousel-item {
+                    img {
+                        height: 95px;
+                        object-fit: contain;
+                        background-color: white;
+                        border-radius: 40px;
+                    }
+                }
+            }
+
+            .txt {
+                text-align: center;
+                background-color: #f757a4;
+                color: white;
+            }
+        }
+
+        .offerApplied {
+            width: 100%;
+            object-fit: contain;
+            margin: 30px 0px;
+        }
+    }
+
+    .carousel-indicators [data-bs-target] {
+        background-color: $color2;
+    }
+
+    .Bottom {
+        width: 95%;
+        min-height: 80px;
+        margin: auto;
+        background-color: white;
+        border-radius: 20px;
+        padding: 25px;
+    }
+}
+
+// @media screen and (min-width: 480px) {
+// }
+@media screen and (max-width: 768px) {
+    main {
+        .Top {
+
+            .Left {
+                float: none;
+            }
+
+            .Right {
+                float: none;
+
+                .Body {
+                    #minOrder {
+                        width: 320px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// @media screen and (min-width: 1024px) {
+// }
+// @media screen and (min-width: 1200px) {
+// }
+// @media screen and (min-width: 1440px) {
+// }

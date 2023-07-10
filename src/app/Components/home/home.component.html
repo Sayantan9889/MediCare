@@ -1,0 +1,151 @@
+<main>
+    <!-- hero carousel -->
+    <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="2000">
+                <img src="../../../assets/Heros/Hero4.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item" data-bs-interval="2000">
+                <img src="../../../assets/Heros/Hero2.jpg" class="d-block w-100" alt="...">
+            </div>
+            <!-- <div class="carousel-item" data-bs-interval="2000">
+                <img src="../../../assets/Heros/Hero3.png" class="d-block w-100" alt="...">
+            </div> -->
+            <div class="carousel-item" data-bs-interval="2000">
+                <img src="../../../assets/Heros/Hero6.jpg" class="d-block w-100" alt="...">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <!-- featured product [Owl carousel - https://youtu.be/2KjKLroMMCM]-->
+    <div class="featureProd">
+        <div class="heading">
+            <div class="icons">
+                <img src="../../../assets/icons/ordermedicine.png">
+            </div>
+            <h5>Featured Product</h5>
+        </div>
+
+        <owl-carousel-o [options]="customOptions">
+            <ng-template carouselSlide *ngFor="let f of onlyFeatureProd">
+                <div style="margin-bottom: 30px;">
+                    <a routerLink="/medicines/catagory/{{'m1'}}/details/{{f.mid}}">
+                        <div class="card">
+                            <div class="card-body">
+                                <img src="{{f.mImg1}}" class="card-img-top" alt="image">
+                            </div>
+                        </div>
+                    </a>
+                    <div class="card-title-div">
+                        <h5 class="card-title">{{f?.mName}}</h5>
+                    </div>
+                </div>
+            </ng-template>
+        </owl-carousel-o>
+
+
+        <!-- <owl-carousel-o [options]="customOptions">
+            <ng-template carouselSlide *ngFor="let i of medicines">
+                    <ng-container *ngFor="let j of i.medicine">
+                        <ng-container *ngIf="j.featuredProd === 'true'">
+                            <div style="margin-bottom: 30px;">
+                                <a routerLink="/medicines/catagory/{{i.id}}/details/{{j.mid}}">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <img src="{{j.mImg1}}" class="card-img-top" alt="image">
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="card-title-div">
+                                    <h5 class="card-title">{{j?.mName}}</h5>
+                                </div>
+                            </div>
+                        </ng-container>
+                    </ng-container>
+            </ng-template>
+        </owl-carousel-o> -->
+
+    </div>
+
+
+
+    <!-- medicine, health-care, Ayurveda -->
+    <div class="catagory">
+        <div class="heading">
+            <div class="icons">
+                <img src="../../../assets/icons/shopbycategory.png">
+            </div>
+            <h5>Shop by Catagory</h5>
+        </div>
+        <div class="row row-cols-1 row-cols-sm-3 row-cols-md-3 g-4">
+            <!-- <ng-container *ngFor="let m of medicines">
+                <ng-container *ngFor="let n of m.medicine">
+                    <ng-container *ngIf="n.featuredProd == 'true'">
+                        <div class="col">
+                            <a routerLink="/catagory/{{m?.id}}">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <p>{{n?.featuredProd}}</p>
+                                    </div>
+                                </div>
+                            </a>
+                            <h4 class="card-title">{{n?.mName}}</h4>
+                        </div>
+                    </ng-container>
+                </ng-container>
+            </ng-container> -->
+            <div class="col">
+                <a routerLink="/medicines/catagory/{{medicines[0].id}}">
+                    <div class="card">
+                        <div class="card-body">
+                            <img src="../../../assets/Catagory/Allopathic.png" class="card-img-top"
+                                style="height: 200px; object-fit: cover;">
+                        </div>
+                    </div>
+                </a>
+                <h4 class="card-title">Allopathic Medicine</h4>
+            </div>
+            <div class="col">
+                <a routerLink="/medicines/catagory/{{medicines[1].id}}">
+                    <div class="card">
+                        <div class="card-body">
+                            <img src="../../../assets/Catagory/Ayurvedic.png" class="card-img-top"
+                                style="height: 200px; object-fit: cover;">
+                        </div>
+                    </div>
+                </a>
+                <h4 class="card-title">Ayurvedic Medicine</h4>
+            </div>
+            <div class="col">
+                <a routerLink="/medicines/catagory/{{medicines[2].id}}">
+                    <div class="card">
+                        <div class="card-body">
+                            <img src="../../../assets/Catagory/Healthcare.png" class="card-img-top"
+                                style="height: 200px; object-fit: cover;">
+                        </div>
+                    </div>
+                </a>
+                <h4 class="card-title">Healthcare Products</h4>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="Note" style="width: 100%; height: 80px; background-color: rgb(255, 216, 216);"></div> -->
+
+    <!-- doctor appointment -->
+    <div class="appointment">
+        <img src="../../../assets/BookAppointment.png" alt="Appiontment image">
+        <button type="button" class="btn">Book Now &nbsp;<i class="fa-solid fa-arrow-right-long fa-beat"></i></button>
+    </div>
+
+</main>

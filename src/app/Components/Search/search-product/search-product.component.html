@@ -1,0 +1,29 @@
+<main>
+    <div class="searched">
+        <ng-container *ngIf="searchedProdLen != 0; else notFound">
+            <div class="card">
+                <div class="row g-0">
+                    <ng-container *ngFor="let s of searchedProd">
+                        <div class="col-md-4 mt-3">
+                            <img src="{{s.mImg1}}" class="img-fluid rounded-start align-middle" alt="...">
+                        </div>
+                        <div class="col-md-8 mb-3">
+                            <div class="card-body">
+                                <h3 class="card-title">{{s.mName}}</h3>
+                                <h6 class="card-title">Generic Name: {{s.genericName}}</h6>
+                                <p class="card-text">Expiry date: {{s.expiry}}</p>
+                                <p class="card-text">Price: {{s.price | currency:'INR'}}</p>
+
+                                <button class="btn btn-warning me-3" routerLink="detail/{{s.mid}}">VIEW DETAILS</button>
+                                <button class="btn btn-success">ADD TO CART</button>
+                            </div>
+                        </div>  <hr>
+                    </ng-container>
+                </div>
+            </div>
+        </ng-container>
+        <ng-template #notFound>
+            <h1 class="notfound">"SORRY! No Item matched"</h1>
+        </ng-template>
+    </div>
+</main>

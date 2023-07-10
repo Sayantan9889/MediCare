@@ -1,0 +1,96 @@
+<main>
+    <div class="Top">
+        <div class="Left">
+
+            <div id="carouselExampleIndicators" class="carousel slide">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                        class="active" aria-current="true" aria-label="Slide 1">"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                        aria-label="Slide 2">"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="{{product[0].mImg1}}" class="d-block w-100" alt="image-1">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{{product[0].mImg2}}" class="d-block w-100" alt="image-2">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+
+        </div>
+        <div class="Right">
+            <div class="Body">
+                <p id="medName">{{product[0].mName}}</p>
+
+                <div style="color: rgb(107, 107, 107);">
+                    <p style="font-size: 14px;">Rating&nbsp; 4.5 <span
+                            style="color: rgb(255, 235, 50); font-size: 14px;"><i class="fa-solid fa-star fa-lg"></i><i
+                                class="fa-solid fa-star fa-lg"></i><i class="fa-solid fa-star fa-lg"></i><i
+                                class="fa-solid fa-star fa-lg"></i><i
+                                class="fa-solid fa-star-half-stroke fa-lg"></i></span> (20 Ratings)</p>
+
+                    <hr>
+
+                    <p>Offer Price&nbsp; {{product[0].price | currency:'INR'}}</p>
+
+                    <h6>MRP&nbsp; <del>{{mrp | currency:'INR'}}</del> <small style="color: rgb(0, 186, 0);"> 20%
+                            OFF</small></h6>
+
+                    <h6 style="font-size: 12px;">(Inclusive of all taxes)</h6>
+
+                    <span style="font-size: 12px;">
+                        <li>Applicable coupon to be applied during checkout</li>
+                        <li>This product cannot be returned for a refund or exchange.</li>
+                        <li>Country of Origin: India</li>
+                        <li>Delivery charges if applicable will be applied at checkout</li>
+                    </span>
+
+                    <p id="minOrder">Minimum Order Quantity: 10 <a routerLink=""><small>Know more</small></a></p>
+
+                    <button class="btn cart">ADD TO CART</button>
+
+                    <hr>
+
+                    <div class="memberOffer">
+                        <div class="images">
+                            <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                  <div class="carousel-item active" data-bs-interval="2000">
+                                    <img src="../../../assets/Offer/memOffer1.png" class="d-block w-100" alt="...">
+                                  </div>
+                                  <div class="carousel-item" data-bs-interval="2000">
+                                    <img src="../../../assets/Offer/memOffer2.png" class="d-block w-100" alt="...">
+                                  </div>
+                                  <div class="carousel-item" data-bs-interval="2000">
+                                    <img src="../../../assets/Offer/memOffer3.png" class="d-block w-100" alt="...">
+                                  </div>
+                                </div>
+                              </div>
+                        </div>
+                        <div class="txt">
+                            <span style="line-height: 30px; border-radius: 0px 0px 20px 20px;"><i class="fa-solid fa-crown fa-lg" style="color: #ffc21a;"></i>Membership starting from for 3 months</span>
+                        </div>
+                    </div>
+
+                    <img src="../../../assets/Offer/offerApplied.png" class="offerApplied">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="Bottom">
+        <p id="genName"><b>Generic Name: </b>{{product[0].genericName}}</p>
+        <p id="uses"><b>Uses: </b>{{product[0].uses}}</p>
+    </div>
+</main>

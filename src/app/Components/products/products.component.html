@@ -1,0 +1,123 @@
+<!-- for medicine tab in navbar -->
+<!-- for show more option button =>  https://stackoverflow.com/questions/62469181/show-more-and-show-less-in-angular || https://codesandbox.io/s/condescending-dawn-best4 -->
+
+<main>
+    <div class="medicine">
+        <!-------------------------------- Allopathic start --------------------------------->
+        <div class="allopathicDIV">
+            <div class="heading">
+                <div class="icons">
+                    <img src="../../../assets/icons/ordermedicine.png">
+                </div>
+                <h5>Allopathic Medicine</h5>
+            </div>
+            <div class="Body">
+                <!-- All Allopathic medicine -->
+                <div class="row row-cols-1 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-4">
+                    <ng-container *ngFor="let a of AlloValue">
+                        <div class="col">
+                            <div class="card">
+                                <img src="{{a?.mImg1}}" class="card-img-top">
+                                <hr>
+                                <div class="card-body">
+                                    <h6 class="card-title">{{a.mName}}</h6>
+                                    <p>Expiry date: {{a?.expiry}} <br>Price: {{a?.price}}</p>
+                                    <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                                </div>
+                                <div class="btn-group" role="group" aria-label="Basic example">
+                                    <button type="button" class="btn btn-warning" routerLink="catagory/{{'m1'}}/details/{{a?.mid}}">Details</button>
+                                    <button type="button" class="btn btn-success"><i
+                                            class="fa-solid fa-cart-shopping fa-xl"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+                <!-- ShowMore/ShowLess button -->
+                <a *ngIf="AlloValue?.length >= 2" href="javascript:void(0)" (click)="AlloClick()"><button
+                        class="more-less-btn btn btn-primary">{{btnTitle1}}</button></a>
+
+                <!-- All Allopathic medicine end -->
+            </div>
+        </div>
+        <!--------------------------------------- Allopathic end -------------------------------->
+
+        <!-------------------------------- Ayurvedic start --------------------------------->
+        <div class="ayurvedicDIV">
+            <div class="heading">
+                <div class="icons">
+                    <img src="../../../assets/icons/ordermedicine.png">
+                </div>
+                <h5>Ayurvedic Medicine</h5>
+            </div>
+            <div class="Body">
+                <!-- All Ayurvedic medicine -->
+                <div class="row row-cols-1 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-4">
+                    <ng-container *ngFor="let a of AyurValue">
+                        <div class="col">
+                            <div class="card">
+                                <img src="{{a?.mImg1}}" class="card-img-top">
+                                <hr>
+                                <div class="card-body">
+                                    <h6 class="card-title">{{a.mName}}</h6>
+                                    <p>Expiry date: {{a?.expiry}} <br>Price: {{a?.price}}</p>
+                                    <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                                </div>
+                                <div class="btn-group" role="group" aria-label="Basic example">
+                                    <button type="button" class="btn btn-warning" routerLink="catagory/{{'m2'}}/details/{{a?.mid}}">Details</button>
+                                    <button type="button" class="btn btn-success"><i
+                                            class="fa-solid fa-cart-shopping fa-xl"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+                <!-- ShowMore/ShowLess button -->
+                <a *ngIf="AyurValue?.length >= 2" href="javascript:void(0)" (click)="AyurClick()"><button
+                        class="more-less-btn btn btn-primary">{{btnTitle2}}</button></a>
+
+                <!-- All Ayurvedic medicine end -->
+            </div>
+        </div>
+        <!--------------------------------------- Ayurvedic end -------------------------------->
+
+        <!-------------------------------- Healthcare start --------------------------------->
+        <div class="healthcareDIV">
+            <div class="heading">
+                <div class="icons">
+                    <img src="../../../assets/icons/shopbycategory.png">
+                </div>
+                <h5>Healthcare Product</h5>
+            </div>
+            <div class="Body">
+                <!-- All Healthcare Product -->
+                <div class="row row-cols-1 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-4">
+                    <ng-container *ngFor="let h of HealthValue">
+                        <div class="col">
+                            <div class="card">
+                                <img src="{{h?.mImg1}}" class="card-img-top">
+                                <hr>
+                                <div class="card-body">
+                                    <h6 class="card-title">{{h.mName}}</h6>
+                                    <p>Expiry date: {{h?.expiry}} <br>Price: {{h?.price}}</p>
+                                    <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                                </div>
+                                <div class="btn-group" role="group" aria-label="Basic example">
+                                    <button type="button" class="btn btn-warning" routerLink="catagory/{{'m3'}}/details/{{h?.mid}}">Details</button>
+                                    <button type="button" class="btn btn-success"><i
+                                            class="fa-solid fa-cart-shopping fa-xl"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+                <!-- ShowMore/ShowLess button -->
+                <a *ngIf="HealthValue?.length >= 2" href="javascript:void(0)" (click)="HealthClick()"><button
+                        class="more-less-btn btn btn-primary">{{btnTitle3}}</button></a>
+
+                <!-- All Ayurvedic medicine end -->
+            </div>
+        </div>
+        <!--------------------------------------- Healthcare end -------------------------------->
+    </div>
+</main>

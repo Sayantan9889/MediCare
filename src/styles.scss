@@ -1,0 +1,44 @@
+/* You can add global styles to this file, and also import other style files */
+*{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+main {
+    background-color: rgb(234, 234, 234);
+}
+body {
+    background-color: rgb(234, 234, 234)!important;
+}
+
+
+
+
+// ----------- owl carousel's previous and next button design -----------
+.featureProd .owl-prev, .featureProd .owl-next {
+    // background: rgba(220, 220, 220, 0.292) !important;
+    // color: rgba(63, 63, 63, 0.324) !important;
+    background: rgba(200, 246, 255, 0) !important;
+    color: rgba(59, 196, 223, 0) !important;
+    height: 50px !important;
+    width: 50px !important;
+    border-radius: 50% !important;
+    position: absolute;
+    top: 55%;
+}
+.featureProd .owl-prev {
+    left: 1px;
+    transform: translate(-50%, -50%);
+}
+.featureProd .owl-next {
+    right: -50px;
+    transform: translate(-50%, -50%);
+}
+.featureProd .owl-prev i, .featureProd .owl-next i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.featureProd:hover .owl-prev, .featureProd:hover .owl-next {
+    background: rgb(200, 246, 255) !important;
+    color: rgb(59, 196, 223) !important;
+}

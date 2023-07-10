@@ -1,0 +1,28 @@
+<main>
+    <div class="products">
+        <div class="Head">
+            <h3>{{catMedicine[0].name}}</h3>
+        </div>
+        <div class="Body">
+            <div class="row row-cols-1 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-4">
+                <ng-container *ngFor="let a of catMedicine[0].medicine">
+                    <div class="col">
+                        <div class="card">
+                            <img src="{{a?.mImg1}}" class="card-img-top">
+                            <hr>
+                            <div class="card-body">
+                                <h6 class="card-title">{{a.mName}}</h6>
+                                <p>Expiry date: {{a?.expiry}} <br>Price: {{a?.price}}</p>
+                            </div>
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                <button type="button" class="btn btn-warning" routerLink="details/{{a?.mid}}">Details</button>
+                                <button type="button" class="btn btn-success"><i
+                                        class="fa-solid fa-cart-shopping fa-xl"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</main>
