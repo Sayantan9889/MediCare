@@ -57,9 +57,9 @@
                         <li>Delivery charges if applicable will be applied at checkout</li>
                     </span>
 
-                    <p id="minOrder">Minimum Order Quantity: 10 <a routerLink=""><small>Know more</small></a></p>
+                    <p id="minOrder">Minimum Order Quantity: 10 <a routerLink="#"><small>Know more</small></a></p>
 
-                    <button class="btn cart">ADD TO CART</button>
+                    <button class="btn cart" (click)="add_to_cart()">{{btnTxt}}</button>
 
                     <hr>
 

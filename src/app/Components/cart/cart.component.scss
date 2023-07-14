@@ -1,0 +1,88 @@
+.cart {
+    width: 95%;
+    min-height: auto;
+    margin: 5% auto;
+    padding: 2% 3% 5% 3%;
+    background-color: white;
+    border-radius: 20px;
+    // display: flex;
+    // flex-direction: column;
+
+    .cart-items {
+        // background-color: #90f6d6;
+        min-height: 65vh;
+        th,
+        td {
+            text-align: center;
+        }
+
+        .Btn {
+            border: 0px;
+            background-color: transparent;
+            color: #ffcb10;
+        }
+
+        .Btn:hover {
+            color: #f1bd00;
+        }
+
+        .Btn:active {
+            color: #ff7676;
+        }
+    }
+
+    .total-price {
+        width: 100%;
+        text-align: right;
+    }
+
+    .btns {
+        display: flex;
+        float: right;
+    }
+}
+
+
+
+.emptyCart {
+    background-color: white;
+    width: 95%;
+    height: auto;
+    margin: 5% auto;
+    padding: 5% 0%;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .card {
+        border: 0px;
+        text-align: center;
+        width: 19rem;
+
+        img {
+            height: 30vh;
+            object-fit: contain;
+        }
+
+        .card-body {
+            p {
+                color: grey;
+            }
+
+            .btn {
+                background-color: #50b897;
+                color: white;
+                width: 100%;
+                padding: 10px;
+
+                &:hover {
+                    background-color: #ff8989;
+                    color: white;
+                    width: 100%;
+                    padding: 10px;
+                }
+            }
+        }
+    }
+}

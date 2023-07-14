@@ -497,6 +497,138 @@ export class MedicinesService {
         //   price: '',
         //   featuredProd:''
         // },
+        // {
+        //   mid: 'h06',
+        //   mName: 'hand wash',
+        //   genericName: '',
+        //   mImg1:'assets/Healthcare/',
+        //   mImg2:'assets/Healthcare/',
+        //   uses: '',
+        //   expiry: '',
+        //   price: '',
+        //   featuredProd:''
+        // },
+        // {
+        //   mid: 'h07',
+        //   mName: 'weight',
+        //   genericName: '',
+        //   mImg1:'assets/Healthcare/',
+        //   mImg2:'assets/Healthcare/',
+        //   uses: '',
+        //   expiry: '',
+        //   price: '',
+        //   featuredProd:''
+        // },
+        // {
+        //   mid: 'h08',
+        //   mName: 'heart rate',
+        //   genericName: '',
+        //   mImg1:'assets/Healthcare/',
+        //   mImg2:'assets/Healthcare/',
+        //   uses: '',
+        //   expiry: '',
+        //   price: '',
+        //   featuredProd:''
+        // },
+        // {
+        //   mid: 'h09',
+        //   mName: 'mask',
+        //   genericName: '',
+        //   mImg1:'assets/Healthcare/',
+        //   mImg2:'assets/Healthcare/',
+        //   uses: '',
+        //   expiry: '',
+        //   price: '',
+        //   featuredProd:''
+        // },
+        // {
+        //   mid: 'h10',
+        //   mName: 'Sugar test',
+        //   genericName: '',
+        //   mImg1:'assets/Healthcare/',
+        //   mImg2:'assets/Healthcare/',
+        //   uses: '',
+        //   expiry: '',
+        //   price: '',
+        //   featuredProd:''
+        // },
+        // {
+        //   mid: 'h11',
+        //   mName: 'pillow',
+        //   genericName: '',
+        //   mImg1:'assets/Healthcare/',
+        //   mImg2:'assets/Healthcare/',
+        //   uses: '',
+        //   expiry: '',
+        //   price: '',
+        //   featuredProd:''
+        // },
+        // {
+        //   mid: 'h12',
+        //   mName: 'Ortopadic slippers',
+        //   genericName: '',
+        //   mImg1:'assets/Healthcare/',
+        //   mImg2:'assets/Healthcare/',
+        //   uses: '',
+        //   expiry: '',
+        //   price: '',
+        //   featuredProd:''
+        // },
+        // {
+        //   mid: 'h13',
+        //   mName: 'injection',
+        //   genericName: '',
+        //   mImg1:'assets/Healthcare/',
+        //   mImg2:'assets/Healthcare/',
+        //   uses: '',
+        //   expiry: '',
+        //   price: '',
+        //   featuredProd:''
+        // },
+        // {
+        //   mid: 'h14',
+        //   mName: 'Serilized cotton',
+        //   genericName: '',
+        //   mImg1:'assets/Healthcare/',
+        //   mImg2:'assets/Healthcare/',
+        //   uses: '',
+        //   expiry: '',
+        //   price: '',
+        //   featuredProd:''
+        // },
+        // {
+        //   mid: 'h15',
+        //   mName: 'First aid',
+        //   genericName: '',
+        //   mImg1:'assets/Healthcare/',
+        //   mImg2:'assets/Healthcare/',
+        //   uses: '',
+        //   expiry: '',
+        //   price: '',
+        //   featuredProd:''
+        // },
+        // {
+        //   mid: 'h16',
+        //   mName: '',
+        //   genericName: '',
+        //   mImg1:'assets/Healthcare/',
+        //   mImg2:'assets/Healthcare/',
+        //   uses: '',
+        //   expiry: '',
+        //   price: '',
+        //   featuredProd:''
+        // },
+        // {
+        //   mid: 'h',
+        //   mName: '',
+        //   genericName: '',
+        //   mImg1:'assets/Healthcare/',
+        //   mImg2:'assets/Healthcare/',
+        //   uses: '',
+        //   expiry: '',
+        //   price: '',
+        //   featuredProd:''
+        // },
       ]
     }
   ]

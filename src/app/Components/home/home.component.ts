@@ -52,10 +52,10 @@ export class HomeComponent {
       // if(f.featuredProd === 'true') { /* ---- this will work only when type of featuredProd will be 'any'. [line-21] ---- */
       if(String(f.featuredProd) === String('true')) {
         this.onlyFeatureProd.push(f);
-         console.log("Feature: ", f);
+        //  console.log("Feature: ", f);
       }
     }
-    console.log("Feature: ", this.onlyFeatureProd);
+    // console.log("Feature: ", this.onlyFeatureProd);
   }
 
 

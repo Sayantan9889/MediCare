@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CartService } from 'src/app/Services/cart.service';
 import { MedicinesService } from 'src/app/Services/medicines.service';
 
 @Component({
@@ -15,7 +16,7 @@ export class ProductsComponent {
   AyurValue!: any;  //to store sliced and full array when pressing show more & show less button
   HealthValue!: any;  //to store sliced and full array when pressing show more & show less button
 
-  constructor(private med: MedicinesService) { }
+  constructor(private med: MedicinesService, private cart:CartService) { }
 
   ngOnInit(): void {
     this.abc = this.med.products;
@@ -72,4 +73,12 @@ export class ProductsComponent {
     this.HealthValue = (this.btnTitle3 === "Show less") ? this.healthcare : this.healthcare.slice(0, 5);
   }
   /* ------- Ayurvedic -------- */
+
+
+
+
+  add_to_cart(product:any) {
+    this.cart.cartItem.push(product);
+    console.log("After pushing the item: ",this.cart.cartItem);
+  }
 }

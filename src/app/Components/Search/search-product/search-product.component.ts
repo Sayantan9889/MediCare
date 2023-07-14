@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CartService } from 'src/app/Services/cart.service';
 import { MedicinesService } from 'src/app/Services/medicines.service';
 
 @Component({
@@ -24,7 +25,7 @@ export class SearchProductComponent {
   searchedProd!: any;
   searchedProdLen!: number;
 
-  constructor(private med: MedicinesService, private activateRoute: ActivatedRoute) { }
+  constructor(private med: MedicinesService, private activateRoute: ActivatedRoute, private cart: CartService) { }
 
   ngOnInit(): void {
     this.products = this.med.products;
@@ -47,5 +48,10 @@ export class SearchProductComponent {
 
       console.log("Searched Items: ", this.searchedProd);
     })
+  }
+
+  add_to_cart(product: any) {
+    this.cart.cartItem.push(product);
+    console.log("After pushing the item: ",this.cart.cartItem);
   }
 }

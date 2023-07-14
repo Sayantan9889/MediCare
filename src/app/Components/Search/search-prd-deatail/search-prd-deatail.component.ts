@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CartService } from 'src/app/Services/cart.service';
 import { MedicinesService } from 'src/app/Services/medicines.service';
 
 @Component({
@@ -24,7 +25,7 @@ export class SearchPrdDeatailComponent {
   searchedProd!: any;
   mrp!: any;
 
-  constructor(private med: MedicinesService, private activateRoute: ActivatedRoute) { }
+  constructor(private med: MedicinesService, private activateRoute: ActivatedRoute, private cart: CartService) { }
 
   ngOnInit(): void {
     this.products = this.med.products;
@@ -45,5 +46,10 @@ export class SearchPrdDeatailComponent {
 
       this.mrp = this.searchedProd[0].price*(120/100);   // 20% off so the MRP will be (offerPricr*(120/100))
     })
+  }
+
+  add_to_cart(product: any) {
+    this.cart.cartItem.push(product);
+    console.log("After pushing the item: ",this.cart.cartItem);
   }
 }

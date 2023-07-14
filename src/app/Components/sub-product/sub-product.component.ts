@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CartService } from 'src/app/Services/cart.service';
 import { MedicinesService } from 'src/app/Services/medicines.service';
 
 @Component({
@@ -11,7 +12,7 @@ export class SubProductComponent {
   cId!:any;
   catMedicine!:any;
 
-  constructor(private med:MedicinesService, private activateRoute:ActivatedRoute){}
+  constructor(private med:MedicinesService, private activateRoute:ActivatedRoute, private cart:CartService){}
 
   ngOnInit():void {
     this.activateRoute.paramMap.subscribe((param) => {
@@ -21,5 +22,10 @@ export class SubProductComponent {
       this.catMedicine = this.med.products.filter((i:any) => i.id===this.cId);
       // console.log("Catagorized Product: ", this.catMedicine);
     })
+  }
+
+  add_to_cart(product: any) {
+    this.cart.cartItem.push(product);
+    console.log("After pushing the item: ",this.cart.cartItem);
   }
 }

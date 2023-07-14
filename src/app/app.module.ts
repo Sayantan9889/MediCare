@@ -16,7 +16,11 @@ import { FooterComponent } from './Components/Commons/footer/footer.component';
 import { SearchProductComponent } from './Components/Search/search-product/search-product.component';
 import { SearchPrdDeatailComponent } from './Components/Search/search-prd-deatail/search-prd-deatail.component';
 import { AboutUsComponent } from './Components/Commons/about-us/about-us.component';
-import { CartComponent } from './Components/Commons/cart/cart.component';
+import { CartComponent } from './Components/cart/cart.component';
+import { CartService } from './Services/cart.service';
+import { CartBadgePipe } from './AllPipe/cart-badge.pipe';
+import { LoginComponent } from './Components/Auth/login/login.component';
+import { SignupComponent } from './Components/Auth/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +34,10 @@ import { CartComponent } from './Components/Commons/cart/cart.component';
     SearchProductComponent,
     SearchPrdDeatailComponent,
     AboutUsComponent,
-    CartComponent
+    CartComponent,
+    CartBadgePipe,
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +47,10 @@ import { CartComponent } from './Components/Commons/cart/cart.component';
     CarouselModule,   // for owl carousel
     BrowserAnimationsModule    // for owl carousel
   ],
-  providers: [MedicinesService],
+  providers: [
+    MedicinesService,
+    CartService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
