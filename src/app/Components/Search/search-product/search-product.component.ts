@@ -51,7 +51,6 @@ export class SearchProductComponent {
   }
 
   add_to_cart(product: any) {
-    this.cart.cartItem.push(product);
-    console.log("After pushing the item: ",this.cart.cartItem);
+    this.cart.AddToCart(product);
   }
 }

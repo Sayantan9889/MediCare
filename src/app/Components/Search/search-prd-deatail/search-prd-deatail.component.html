@@ -43,9 +43,9 @@
 
                     <hr>
 
-                    <p>Offer Price&nbsp; {{searchedProd[0].price | currency:'INR'}}</p>
+                    <p>Offer Price&nbsp; {{searchedProd[0].price | offer:20  | currency:'INR'}}</p>
 
-                    <h6>MRP&nbsp; <del>{{mrp | currency:'INR'}}</del> <small style="color: rgb(0, 186, 0);"> 20%
+                    <h6>MRP&nbsp; <del>{{searchedProd[0].price | currency:'INR'}}</del> <small style="color: rgb(0, 186, 0);"> 20%
                             OFF</small></h6>
 
                     <h6 style="font-size: 12px;">(Inclusive of all taxes)</h6>
@@ -59,7 +59,7 @@
 
                     <p id="minOrder">Minimum Order Quantity: 10 <a routerLink="#"><small>Know more</small></a></p>
 
-                    <button class="btn cart" (click)="add_to_cart(searchedProd[0])">ADD TO CART</button>
+                    <button class="btn cart" (click)="add_to_cart(searchedProd[0])">{{btnTxt}}</button>
 
                     <hr>
 

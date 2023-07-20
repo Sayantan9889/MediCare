@@ -32,14 +32,11 @@ export class ProductDetailsComponent {
 
       this.product = this.pCatagory.medicine.filter((res: any) => this.pId === res.mid)
       console.log("Selected product: ", this.product);
-
-      this.mrp = this.product[0].price * (120 / 100);   // 20% off so the MRP will be (offerPricr*(120/100))
     });
   }
 
-  add_to_cart() {
-    this.cart.cartItem.push(this.product[0]);
+  add_to_cart(prod: any) {
+    this.cart.AddToCart(prod);
     this.btnTxt = "ADD MORE";
-    console.log("After pushing the item: ", this.cart.cartItem);
   }
 }

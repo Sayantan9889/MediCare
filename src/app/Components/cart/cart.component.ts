@@ -7,18 +7,6 @@ import { CartService } from 'src/app/Services/cart.service';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent {
-  // cartItems: {
-  //   mid: string,
-  //   mName: string,
-  //   genericName: string,
-  //   mImg1: string,
-  //   mImg2: string,
-  //   uses: string,
-  //   expiry: string,
-  //   price: string,
-  //   featuredProd: string
-  // }[] = [];
-
   items!: any;
   GrandTotalPrice!: number;
 
@@ -26,28 +14,29 @@ export class CartComponent {
 
   ngOnInit(): void {
     this.items = this.cart.cartItem;
-    console.log("Medicine added in the cart are: ", this.items);
+    // console.log("Medicine added in the cart are: ", this.items);
 
     // Calculating grand total
     this.grandTotal();
   }
 
   removeItem(prod: any, index: any) {
-    this.cart.cartItem.map((res: any) => {
+    for (let res of this.cart.cartItem) {
       if (res.mid == prod.mid) {
         this.cart.cartItem.splice(index, 1);
         console.log("After removing ", prod.mName, " from cart list: ", this.cart.cartItem);
 
-        // updating this.GrandTotalPrice
-        this.grandTotal();
+        this.grandTotal();    // updating this.GrandTotalPrice
+
+        break;   // to break the loop after deleting a item, because if it has multiple same item it will not work properly
       }
-    });
+    }
   }
 
   grandTotal() {
     this.GrandTotalPrice = 0;
     this.cart.cartItem.map((res: any) => {
-      this.GrandTotalPrice += Number(res.price);
+      this.GrandTotalPrice += Number(res.totalPrice);
     });
   }
 }

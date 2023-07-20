@@ -78,6 +78,9 @@ export class HomeComponent {
       0: {
         items: 1
       },
+      200: {
+        items: 2
+      },
       400: {
         items: 3
       },

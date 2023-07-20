@@ -8,6 +8,7 @@
                             <th scope="col">#</th>
                             <th scope="col">Name</th>
                             <th scope="col">Price</th>
+                            <th scope="col">Offer Price</th>
                             <th scope="col">Quantity</th>
                             <th scope="col">Total</th>
                             <th scope="col">Remove</th>
@@ -19,16 +20,17 @@
                                 <th scope="row"><img src="{{i?.mImg1}}" style="height: 150px; object-fit: contain;">
                                 </th>
                                 <td class="align-middle">{{i.mName}}</td>
-                                <td class="align-middle">{{i.price}}</td>
-                                <td class="align-middle">1</td>
-                                <td class="align-middle">{{i.price}}</td>
+                                <td class="align-middle">{{i.price | number}}</td>
+                                <td class="align-middle">{{i.offerPrice | number}}</td>
+                                <td class="align-middle">{{i.quantity}}</td>
+                                <td class="align-middle">{{i.totalPrice | number}}</td>
                                 <td class="align-middle"><button class="Btn" (click)="removeItem(i, ind)"><i class="fa-solid fa-trash-can fa-lg"></i></button></td>
                             </tr>
                         </ng-container>
                     </tbody>
                 </table>
             </div>
-            <hr>
+            <!-- <hr> -->
             <div class="total-price">
                 <p><b>Grand Total: </b> {{GrandTotalPrice | currency:'INR'}}/-</p>
             </div>

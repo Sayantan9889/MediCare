@@ -42,7 +42,7 @@
 .Body .card {
     padding: 0%;
     border-radius: 10px;
-    height: 360px;
+    height: 390px;
     margin-top: 30px;
 }
 .Body .card-body {
@@ -56,6 +56,9 @@
 }
 .Body .more-less-btn {
     margin: 45px auto 20px auto;
+}
+.btn-success:active {
+    background-color: #00b557 !important;
 }
 // .btn-group {
 //     margin: 0px 5px;

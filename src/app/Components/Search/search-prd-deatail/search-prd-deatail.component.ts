@@ -24,6 +24,7 @@ export class SearchPrdDeatailComponent {
   }[] = [];
   searchedProd!: any;
   mrp!: any;
+  btnTxt = 'ADD TO Cart';
 
   constructor(private med: MedicinesService, private activateRoute: ActivatedRoute, private cart: CartService) { }
 
@@ -43,13 +44,11 @@ export class SearchPrdDeatailComponent {
 
       this.searchedProd = this.allProd.filter((prod) => this.pId===prod.mid);
       console.log("Searched Items: ", this.searchedProd);
-
-      this.mrp = this.searchedProd[0].price*(120/100);   // 20% off so the MRP will be (offerPricr*(120/100))
     })
   }
 
   add_to_cart(product: any) {
-    this.cart.cartItem.push(product);
-    console.log("After pushing the item: ",this.cart.cartItem);
+    this.cart.AddToCart(product);
+    this.btnTxt = "ADD MORE";
   }
 }

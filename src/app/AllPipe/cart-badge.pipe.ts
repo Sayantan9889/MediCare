@@ -7,9 +7,11 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class CartBadgePipe implements PipeTransform {
 
   transform(cartItems: any): unknown {
+    // console.log("cartItems from pipe: ",cartItems);
+
     let cartItemNo = 0;
     for(let i of cartItems){
-      cartItemNo += 1;
+      cartItemNo += i.quantity;
     }
     return cartItemNo;
   }

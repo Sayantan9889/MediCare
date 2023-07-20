@@ -21,6 +21,7 @@ import { CartService } from './Services/cart.service';
 import { CartBadgePipe } from './AllPipe/cart-badge.pipe';
 import { LoginComponent } from './Components/Auth/login/login.component';
 import { SignupComponent } from './Components/Auth/signup/signup.component';
+import { OfferPipe } from './AllPipe/offer.pipe';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { SignupComponent } from './Components/Auth/signup/signup.component';
     CartComponent,
     CartBadgePipe,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    OfferPipe
   ],
   imports: [
     BrowserModule,
@@ -49,7 +51,8 @@ import { SignupComponent } from './Components/Auth/signup/signup.component';
   ],
   providers: [
     MedicinesService,
-    CartService
+    CartService,
+    OfferPipe   // To use OfferPipe in cart service
   ],
   bootstrap: [AppComponent]
 })

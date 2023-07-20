@@ -39,7 +39,8 @@
               <div class="box">
                 <i class="fa-solid fa-magnifying-glass fa-xl" style="color: #50b897a4;"></i>
                 <input type="search" name="med" ngModel #med="ngModel"
-                  placeholder="Search for Medicine and Healthcare Product" aria-label="Search">  <!--  for Medicine and Healthcare Product -->
+                  placeholder="Search for Medicine and Healthcare Product" aria-label="Search">
+                <!--  for Medicine and Healthcare Product -->
                 <button class="btn" type="submit">Search</button>
               </div>
             </form>
@@ -51,10 +52,12 @@
         <div style="margin-top: 5px;">
           <button class="btn btn-outline-success Btn cartBtn" routerLink="/cart">
             <i class="fa-solid fa-cart-shopping fa-xl"></i>
-            <span class="position-absolute start-150 translate-middle badge rounded-pill bg-danger">
-              {{cartItems | cartBadge}}
-              <span class="visually-hidden">unread messages</span>
-            </span>
+            <ng-container *ngIf="cartItems.length > 0">
+              <span class="position-absolute start-150 translate-middle badge rounded-pill bg-danger">
+                {{cartItems | cartBadge}}
+                <span class="visually-hidden">unread messages</span>
+              </span>
+            </ng-container>
           </button>
           <!-- <button class="btn btn-outline-success regBtn"><i class="fa-solid fa-user-plus fa-lg"></i> Sign up</button> -->
           <!-- <button class="btn btn-outline-success loginBtn"><i class="fa-solid fa-user fa-lg"></i> Log in</button> -->
@@ -62,7 +65,8 @@
           <div class="dropdown">
             <button class="btn btn-outline-success Btn cartBtn"><i class="fa-solid fa-circle-user fa-2xl"></i></button>
             <div class="dropdown-content">
-              <a href=""><i class="fa-solid fa-right-to-bracket"></i>&nbsp; LOG IN</a>
+              <!-- <a data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-right-to-bracket"></i>&nbsp; LOG IN</a> -->
+              <a data-bs-toggle="modal" data-bs-target="#ModalForm"><i class="fa-solid fa-right-to-bracket"></i>&nbsp; LOG IN </a>
               <a href=""><i class="fa-solid fa-user-plus"></i>&nbsp; SIGN UP</a>
             </div>
           </div>
@@ -72,4 +76,5 @@
     </div>
   </nav>
 </header>
+<app-login></app-login>
 <!-- Navbar -->

@@ -9,23 +9,22 @@ import { MedicinesService } from 'src/app/Services/medicines.service';
   styleUrls: ['./sub-product.component.scss']
 })
 export class SubProductComponent {
-  cId!:any;
-  catMedicine!:any;
+  cId!: any;
+  catMedicine!: any;
 
-  constructor(private med:MedicinesService, private activateRoute:ActivatedRoute, private cart:CartService){}
+  constructor(private med: MedicinesService, private activateRoute: ActivatedRoute, private cart: CartService) { }
 
-  ngOnInit():void {
+  ngOnInit(): void {
     this.activateRoute.paramMap.subscribe((param) => {
       this.cId = param.get('id');
       // console.log("Colected id: ", this.cId);
 
-      this.catMedicine = this.med.products.filter((i:any) => i.id===this.cId);
+      this.catMedicine = this.med.products.filter((i: any) => i.id === this.cId);
       // console.log("Catagorized Product: ", this.catMedicine);
     })
   }
 
   add_to_cart(product: any) {
-    this.cart.cartItem.push(product);
-    console.log("After pushing the item: ",this.cart.cartItem);
+    this.cart.AddToCart(product);
   }
 }

@@ -1,0 +1,83 @@
+* {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.modal-open { z-index: 5;}
+
+.modal-content {
+    width: 80%;
+    margin: 0 auto;
+
+    .modal-body {
+        padding: 0;
+
+        .btn-close {
+            position: absolute;
+            right: 0;
+            padding: 1em;
+            --bs-btn-close-focus-shadow: 0 0 0 0rem rgba(13, 110, 253, 0.25);
+        }
+
+        .myform {
+            padding: 2em;
+            max-width: 100%;
+            box-shadow: 0 4px 6px 0 rgba(22, 22, 26, 0.18);
+
+            h1 {
+                font-size: 2.3em;
+                font-weight: bold;
+            }
+
+            .form-control {
+                background-color: inherit;
+                color: #009868;
+                padding-left: 0;
+                border: 0;
+                border-radius: 0;
+                border-bottom: 1px solid #009868;
+
+                &:focus {
+                    box-shadow: inset 0 -1px 0 #009868;
+                }
+            }
+
+            .btn {
+                width: 100%;
+                font-weight: 600;
+                background-color: #009868;
+                color: white;
+                border-radius: 5px;
+                padding: 0.5em 0;
+
+                &:hover {
+                    background-color: #e465ad;
+                    color: #ffffff;
+                    border-color: #e465ad;
+
+                }
+            }
+
+            p {
+                text-align: center;
+                padding-top: 2em;
+                color: grey;
+
+                a {
+                    color: #457ef8;
+                    text-decoration: none;
+
+                    &:hover {
+                        color: #009868;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .myform {
+        max-width: 90%;
+        margin: 0 auto;
+    }
+}

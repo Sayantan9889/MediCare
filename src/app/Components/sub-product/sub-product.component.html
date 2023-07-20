@@ -12,7 +12,8 @@
                             <hr>
                             <div class="card-body">
                                 <h6 class="card-title">{{a.mName}}</h6>
-                                <p>Expiry date: {{a?.expiry}} <br>Price: {{a?.price}}</p>
+                                <h6 class="card-title">Expiry date: {{a?.expiry}}</h6>
+                                <p><del>{{a?.price | currency:'INR'}}</del> <br>{{a?.price | offer:20 | currency:'INR'}}</p>
                             </div>
                             <div class="btn-group" role="group" aria-label="Basic example">
                                 <button type="button" class="btn btn-warning" routerLink="details/{{a?.mid}}">Details</button>

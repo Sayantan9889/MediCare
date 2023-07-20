@@ -12,7 +12,7 @@
                                 <h3 class="card-title">{{s.mName}}</h3>
                                 <h6 class="card-title">Generic Name: {{s.genericName}}</h6>
                                 <p class="card-text">Expiry date: {{s.expiry}}</p>
-                                <p class="card-text">Price: {{s.price | currency:'INR'}}</p>
+                                <p class="card-text">Offer price: {{s.price | offer:20 | currency:'INR'}} &nbsp;&nbsp;<span style="color: green;">(20% OFF)</span></p>
 
                                 <button class="btn btn-warning me-3" routerLink="detail/{{s.mid}}">VIEW DETAILS</button>
                                 <button class="btn btn-success" (click)="add_to_cart(s)">ADD TO CART</button>

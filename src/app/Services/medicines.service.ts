@@ -277,7 +277,7 @@ export class MedicinesService {
         },
         {
           mid: 'a04',
-          mName: 'Kapiva Triphala Natural Herbal Laxative Juice 1 L',
+          mName: 'Kapiva Triphala Natural Herbal Laxative Juice',
           genericName: ' Amla, Bahera, Harad',
           mImg1:'assets/Ayurvedic/Triphala-Juice-1.jpg',
           mImg2:'assets/Ayurvedic/Triphala-Juice-2.jpg',
