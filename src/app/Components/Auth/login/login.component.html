@@ -6,16 +6,16 @@
                     aria-label="Close"></button>
                 <div class="myform">
                     <h1 class="text-center">Login Form</h1>
-                    <form>
+                    <form [formGroup]="logData" (ngSubmit)="logIn()">
                         <div class="mb-3 mt-4">
                             <label for="email" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+                            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" formControlName="email">
                         </div>
                         <div class="mb-3">
                             <label for="password" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="password">
+                            <input type="password" class="form-control" id="password" formControlName="password">
                         </div>
-                        <button type="submit" class="btn btn-light mt-3">LOGIN</button>
+                        <button type="submit" class="btn btn-light mt-3" data-bs-dismiss="modal">LOGIN</button>
                         <p>Not a member? <a href="#">Signup now</a></p>
                     </form>
                 </div>

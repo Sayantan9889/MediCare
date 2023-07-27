@@ -42,7 +42,7 @@ export class CartService {
           ...data,
           quantity: data.quantity + 1,
           offerPrice: this.OfferPIPE.transform(product.price, 20),
-          totalPrice: this.OfferPIPE.transform(product.price, 20) * (data.quantity+1)
+          totalPrice: this.OfferPIPE.transform(product.price, 20) * (data.quantity + 1)
         }
 
         cartItemsss.splice(p, 1, cart_prod)
@@ -73,5 +73,6 @@ export class CartService {
       console.log("After pushing the item: ", this.cartItem);
 
     }
+
   }
 }

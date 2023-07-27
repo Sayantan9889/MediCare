@@ -22,6 +22,9 @@ import { CartBadgePipe } from './AllPipe/cart-badge.pipe';
 import { LoginComponent } from './Components/Auth/login/login.component';
 import { SignupComponent } from './Components/Auth/signup/signup.component';
 import { OfferPipe } from './AllPipe/offer.pipe';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { ProfileComponent } from './Components/Auth/profile/profile.component';
+import { HttpInterceptorService } from './Services/AuthServices/http-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,8 @@ import { OfferPipe } from './AllPipe/offer.pipe';
     CartBadgePipe,
     LoginComponent,
     SignupComponent,
-    OfferPipe
+    OfferPipe,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -47,12 +51,18 @@ import { OfferPipe } from './AllPipe/offer.pipe';
     FormsModule,
     ReactiveFormsModule,
     CarouselModule,   // for owl carousel
-    BrowserAnimationsModule    // for owl carousel
+    BrowserAnimationsModule,    // for owl carousel
+    HttpClientModule
   ],
   providers: [
     MedicinesService,
     CartService,
-    OfferPipe   // To use OfferPipe in cart service
+    OfferPipe,   // To use OfferPipe in cart service
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpInterceptorService,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { CartService } from 'src/app/Services/cart.service';
 import { MedicinesService } from 'src/app/Services/medicines.service';
 
@@ -16,7 +17,7 @@ export class ProductsComponent {
   AyurValue!: any;  //to store sliced and full array when pressing show more & show less button
   HealthValue!: any;  //to store sliced and full array when pressing show more & show less button
 
-  constructor(private med: MedicinesService, private cart:CartService) { }
+  constructor(private med: MedicinesService, private cart:CartService, private router:Router) { }
 
   ngOnInit(): void {
     this.abc = this.med.products;
@@ -52,7 +53,10 @@ export class ProductsComponent {
     // first, if btnTitle's value is 'Show more' before click then change its value to 'Show less', and vice-versa
     this.btnTitle1 = (this.btnTitle1 === "Show more") ? "Show less" : "Show more";
     // then, store all elements or sliced elements of allopathic into the variable value. this value[] array will be displayed in html
-    this.AlloValue = (this.btnTitle1 === "Show less") ? this.allopathic : this.allopathic.slice(0, 5);
+    this.AlloValue = (this.btnTitle1 === "Show less") ? this.allopathic.slice(0, 10) : this.allopathic.slice(0, 5);
+  }
+  AlloClick2() {
+    this.router.navigate([`medicines/catagory/${'m1'}`]);
   }
   /* ------- Allopathic -------- */
   /* ------- Ayurvedic -------- */
@@ -61,7 +65,10 @@ export class ProductsComponent {
     // first, if btnTitle's value is 'Show more' before click then change its value to 'Show less', and vice-versa
     this.btnTitle2 = (this.btnTitle2 === "Show more") ? "Show less" : "Show more";
     // then, store all elements or sliced elements of ayurvedic into the variable value. this value[] array will be displayed in html
-    this.AyurValue = (this.btnTitle2 === "Show less") ? this.ayurvedic : this.ayurvedic.slice(0, 5);
+    this.AyurValue = (this.btnTitle2 === "Show less") ? this.ayurvedic.slice(0, 10) : this.ayurvedic.slice(0, 5);
+  }
+  AyurClick2() {
+    this.router.navigate([`medicines/catagory/${'m2'}`]);
   }
   /* ------- Ayurvedic -------- */
   /* ------- Ayurvedic -------- */
@@ -70,7 +77,10 @@ export class ProductsComponent {
     // first, if btnTitle's value is 'Show more' before click then change its value to 'Show less', and vice-versa
     this.btnTitle3 = (this.btnTitle3 === "Show more") ? "Show less" : "Show more";
     // then, store all elements or sliced elements of ayurvedic into the variable value. this value[] array will be displayed in html
-    this.HealthValue = (this.btnTitle3 === "Show less") ? this.healthcare : this.healthcare.slice(0, 5);
+    this.HealthValue = (this.btnTitle3 === "Show less") ? this.healthcare.slice(0, 10) : this.healthcare.slice(0, 5);
+  }
+  HealthClick2() {
+    this.router.navigate([`medicines/catagory/${'m3'}`]);
   }
   /* ------- Ayurvedic -------- */
 
@@ -79,5 +89,16 @@ export class ProductsComponent {
 
   add_to_cart(product:any) {
     this.cart.AddToCart(product);
+    document.getElementById('xxx')?.innerHTML+(`<div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <img src="..." class="rounded me-2" alt="...">
+      <strong class="me-auto">Bootstrap</strong>
+      <small>11 mins ago</small>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+      Hello, world! This is a toast message.
+    </div>
+  </div>`);
   }
 }

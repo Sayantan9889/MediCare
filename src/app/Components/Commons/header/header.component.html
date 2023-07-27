@@ -65,9 +65,15 @@
           <div class="dropdown">
             <button class="btn btn-outline-success Btn cartBtn"><i class="fa-solid fa-circle-user fa-2xl"></i></button>
             <div class="dropdown-content">
-              <!-- <a data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-right-to-bracket"></i>&nbsp; LOG IN</a> -->
-              <a data-bs-toggle="modal" data-bs-target="#ModalForm"><i class="fa-solid fa-right-to-bracket"></i>&nbsp; LOG IN </a>
-              <a href=""><i class="fa-solid fa-user-plus"></i>&nbsp; SIGN UP</a>
+              <ng-container *ngIf="!loggedIn(); else logged">
+                <a data-bs-toggle="modal" data-bs-target="#ModalForm"><i class="fa-solid fa-right-to-bracket"></i>&nbsp;
+                  LOG IN </a>
+                <a href=""><i class="fa-solid fa-user-plus"></i>&nbsp; SIGN UP</a>
+              </ng-container>
+              <ng-template #logged>
+                <a routerLink="/profile"><i class="fa-solid fa-user-tie"></i>&nbsp; PROFILE</a>
+                <a (click)="log_out()"><i class="fa-solid fa-right-from-bracket"></i>&nbsp; LOG OUT</a>
+              </ng-template>
             </div>
           </div>
           <!-- *********** Dropdown *************** -->

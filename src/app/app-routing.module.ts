@@ -8,6 +8,9 @@ import { SearchProductComponent } from './Components/Search/search-product/searc
 import { SearchPrdDeatailComponent } from './Components/Search/search-prd-deatail/search-prd-deatail.component';
 import { AboutUsComponent } from './Components/Commons/about-us/about-us.component';
 import { CartComponent } from './Components/cart/cart.component';
+import { ProfileComponent } from './Components/Auth/profile/profile.component';
+import { AuthGuardGuard } from './Guard/auth-guard.guard';
+import { LoginComponent } from './Components/Auth/login/login.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'/home', pathMatch:'full'},
@@ -18,7 +21,9 @@ const routes: Routes = [
   {path:'search/:prod', component:SearchProductComponent},
   {path:'search/:prod/detail/:pid', component:SearchPrdDeatailComponent},
   {path:'about-us', component:AboutUsComponent},
-  {path:'cart', component:CartComponent}
+  {path:'cart', component:CartComponent},
+  // {path:'login', component:LoginComponent},
+  {path:'profile', component:ProfileComponent, canActivate:[AuthGuardGuard]}
 ];
 
 @NgModule({

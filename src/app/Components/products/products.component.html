@@ -22,11 +22,13 @@
                                 <div class="card-body">
                                     <h6 class="card-title">{{a.mName}}</h6>
                                     <h6 class="card-title">Expiry date: {{a?.expiry}}</h6>
-                                    <p><del>{{a?.price | currency:'INR'}}</del> <br>{{a?.price | offer:20 | currency:'INR'}}</p>
+                                    <p><del>{{a?.price | currency:'INR'}}</del> <br>{{a?.price | offer:20 |
+                                        currency:'INR'}}</p>
                                     <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
                                 </div>
                                 <div class="btn-group" role="group" aria-label="Basic example">
-                                    <button type="button" class="btn btn-warning" routerLink="catagory/{{'m1'}}/details/{{a?.mid}}">Details</button>
+                                    <button type="button" class="btn btn-warning"
+                                        routerLink="catagory/{{'m1'}}/details/{{a?.mid}}">Details</button>
                                     <button type="button" class="btn btn-success" (click)="add_to_cart(a)"><i
                                             class="fa-solid fa-cart-shopping fa-xl"></i></button>
                                 </div>
@@ -35,9 +37,10 @@
                     </ng-container>
                 </div>
                 <!-- ShowMore/ShowLess button -->
-                <a *ngIf="AlloValue?.length >= 2" href="javascript:void(0)" (click)="AlloClick()"><button
+                <a *ngIf="AlloValue?.length >= 5" href="javascript:void(0)" (click)="AlloClick()"><button
                         class="more-less-btn btn btn-primary">{{btnTitle1}}</button></a>
-
+                <a *ngIf="AlloValue?.length >= 10" href="javascript:void(0)" class="more-less-btn btn btn-warning mx-3"
+                    (click)="AlloClick2()">View all</a>
                 <!-- All Allopathic medicine end -->
             </div>
         </div>
@@ -62,12 +65,14 @@
                                 <div class="card-body">
                                     <h6 class="card-title">{{a.mName}}</h6>
                                     <h6 class="card-title">Expiry date: {{a?.expiry}}</h6>
-                                    <p><del>{{a?.price | currency:'INR'}}</del> <br>{{a?.price | offer:20 | currency:'INR'}}</p>
+                                    <p><del>{{a?.price | currency:'INR'}}</del> <br>{{a?.price | offer:20 |
+                                        currency:'INR'}}</p>
                                     <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
                                 </div>
                                 <div class="btn-group" role="group" aria-label="Basic example">
-                                    <button type="button" class="btn btn-warning" routerLink="catagory/{{'m2'}}/details/{{a?.mid}}">Details</button>
-                                    <button type="button" class="btn btn-success" (click)="add_to_cart(a)"><i
+                                    <button type="button" class="btn btn-warning"
+                                        routerLink="catagory/{{'m2'}}/details/{{a?.mid}}">Details</button>
+                                    <button type="button" id="xxx" class="btn btn-success" (click)="add_to_cart(a)"><i
                                             class="fa-solid fa-cart-shopping fa-xl"></i></button>
                                 </div>
                             </div>
@@ -75,8 +80,10 @@
                     </ng-container>
                 </div>
                 <!-- ShowMore/ShowLess button -->
-                <a *ngIf="AyurValue?.length >= 2" href="javascript:void(0)" (click)="AyurClick()"><button
+                <a *ngIf="AyurValue?.length >= 5" href="javascript:void(0)" (click)="AyurClick()"><button
                         class="more-less-btn btn btn-primary">{{btnTitle2}}</button></a>
+                <a *ngIf="AyurValue?.length >= 10" href="javascript:void(0)" class="more-less-btn btn btn-warning mx-3"
+                    (click)="AyurClick2()">View all</a>
 
                 <!-- All Ayurvedic medicine end -->
             </div>
@@ -105,7 +112,8 @@
                                     <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
                                 </div>
                                 <div class="btn-group" role="group" aria-label="Basic example">
-                                    <button type="button" class="btn btn-warning" routerLink="catagory/{{'m3'}}/details/{{h?.mid}}">Details</button>
+                                    <button type="button" class="btn btn-warning"
+                                        routerLink="catagory/{{'m3'}}/details/{{h?.mid}}">Details</button>
                                     <button type="button" class="btn btn-success" (click)="add_to_cart(h)"><i
                                             class="fa-solid fa-cart-shopping fa-xl"></i></button>
                                 </div>
@@ -114,9 +122,10 @@
                     </ng-container>
                 </div>
                 <!-- ShowMore/ShowLess button -->
-                <a *ngIf="HealthValue?.length >= 2" href="javascript:void(0)" (click)="HealthClick()"><button
+                <a *ngIf="HealthValue?.length >= 5" href="javascript:void(0)" (click)="HealthClick()"><button
                         class="more-less-btn btn btn-primary">{{btnTitle3}}</button></a>
-
+                <a *ngIf="HealthValue?.length >= 10" href="javascript:void(0)" class="more-less-btn btn btn-warning mx-3"
+                    (click)="HealthClick2()">View all</a>
                 <!-- All Ayurvedic medicine end -->
             </div>
         </div>
