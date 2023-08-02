@@ -15,9 +15,10 @@ export class AuthGuardGuard {
       return true;
     else {
       alert("You need to log in first!");
-      this.router.navigate(['/login'], {
-        queryParams: {returnUrl:state.url}
-      });
+      // this.router.navigate(['/login'], {
+      //   queryParams: {returnUrl:state.url}
+      // });
+
       return false;
     }
   }

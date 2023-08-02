@@ -27,7 +27,7 @@
                 <a routerLink="/medicines/catagory/{{'m2'}}">Ayurvedic</a>
                 <a routerLink="/medicines/catagory/{{'m3'}}">Healthcare</a>
                 <hr class="divider">
-                <a routerLink="#">Book an Appointment</a>
+                <a routerLink="/appointment">Book an Appointment</a>
               </div>
             </div>
           </li>
@@ -35,13 +35,14 @@
         <!-- *********************** Search *********************** -->
         <ul class="navbar-nav ms-auto me-auto">
           <li class="nav-item">
-            <form class="d-flex" role="search" #formValue="ngForm" (ngSubmit)="search(formValue)">
+            <!-- <form class="d-flex" role="search" #formValue="ngForm" (ngSubmit)="search(formValue)"> -->
+            <form class="d-flex" role="search" #formValue="ngForm">
               <div class="box">
                 <i class="fa-solid fa-magnifying-glass fa-xl" style="color: #50b897a4;"></i>
                 <input type="search" name="med" ngModel #med="ngModel"
-                  placeholder="Search for Medicine and Healthcare Product" aria-label="Search">
+                  placeholder="Search for Medicine and Healthcare Product" aria-label="Search" (keyup)="search($event)">
                 <!--  for Medicine and Healthcare Product -->
-                <button class="btn" type="submit">Search</button>
+                <!-- <button class="btn" type="submit">Search</button> -->
               </div>
             </form>
           </li>
@@ -61,14 +62,14 @@
           </button>
           <!-- <button class="btn btn-outline-success regBtn"><i class="fa-solid fa-user-plus fa-lg"></i> Sign up</button> -->
           <!-- <button class="btn btn-outline-success loginBtn"><i class="fa-solid fa-user fa-lg"></i> Log in</button> -->
-          <!-- *********** Dropdown *************** -->
+          <!-- ************* Dropdown *************** -->
           <div class="dropdown">
             <button class="btn btn-outline-success Btn cartBtn"><i class="fa-solid fa-circle-user fa-2xl"></i></button>
             <div class="dropdown-content">
               <ng-container *ngIf="!loggedIn(); else logged">
                 <a data-bs-toggle="modal" data-bs-target="#ModalForm"><i class="fa-solid fa-right-to-bracket"></i>&nbsp;
                   LOG IN </a>
-                <a href=""><i class="fa-solid fa-user-plus"></i>&nbsp; SIGN UP</a>
+                <a data-bs-toggle="modal" data-bs-target="#SingnUpModal"><i class="fa-solid fa-user-plus"></i>&nbsp; SIGN UP</a>
               </ng-container>
               <ng-template #logged>
                 <a routerLink="/profile"><i class="fa-solid fa-user-tie"></i>&nbsp; PROFILE</a>
@@ -76,11 +77,12 @@
               </ng-template>
             </div>
           </div>
-          <!-- *********** Dropdown *************** -->
+          <!-- ************* Dropdown *************** -->
         </div>
       </div>
     </div>
   </nav>
 </header>
 <app-login></app-login>
+<app-signup></app-signup>
 <!-- Navbar -->

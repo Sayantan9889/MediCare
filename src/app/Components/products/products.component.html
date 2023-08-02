@@ -20,10 +20,21 @@
                                 <img src="{{a?.mImg1}}" class="card-img-top">
                                 <hr>
                                 <div class="card-body">
-                                    <h6 class="card-title">{{a.mName}}</h6>
-                                    <h6 class="card-title">Expiry date: {{a?.expiry}}</h6>
-                                    <p><del>{{a?.price | currency:'INR'}}</del> <br>{{a?.price | offer:20 |
-                                        currency:'INR'}}</p>
+                                    <h5 class="card-title">{{a.mName}}</h5>
+                                    <h6 class="card-text">Expiry date: {{a?.expiry}}</h6>
+                                    <p class="mt-3">{{a?.price | offer:20 | currency:'INR'}}<br>
+                                        <span style="font-size: 13px;">
+                                            <del>MRP {{a?.price | currency:'INR'}}</del>&nbsp;
+                                            <span
+                                                style="color: white;
+                                                background-color: green;
+                                                font-size: 10px;
+                                                padding: 1px;
+                                                border-radius: 3px;"
+                                                > 20% OFF
+                                            </span>
+                                        </span>
+                                    </p>
                                     <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
                                 </div>
                                 <div class="btn-group" role="group" aria-label="Basic example">
@@ -63,16 +74,27 @@
                                 <img src="{{a?.mImg1}}" class="card-img-top">
                                 <hr>
                                 <div class="card-body">
-                                    <h6 class="card-title">{{a.mName}}</h6>
+                                    <h5 class="card-title">{{a.mName}}</h5>
                                     <h6 class="card-title">Expiry date: {{a?.expiry}}</h6>
-                                    <p><del>{{a?.price | currency:'INR'}}</del> <br>{{a?.price | offer:20 |
-                                        currency:'INR'}}</p>
+                                    <p class="mt-3">{{a?.price | offer:20 | currency:'INR'}}<br>
+                                        <span style="font-size: 13px;">
+                                            <del>MRP {{a?.price | currency:'INR'}}</del>&nbsp;
+                                            <span
+                                                style="color: white;
+                                                background-color: green;
+                                                font-size: 10px;
+                                                padding: 1px;
+                                                border-radius: 3px;"
+                                                > 20% OFF
+                                            </span>
+                                        </span>
+                                    </p>
                                     <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
                                 </div>
                                 <div class="btn-group" role="group" aria-label="Basic example">
                                     <button type="button" class="btn btn-warning"
                                         routerLink="catagory/{{'m2'}}/details/{{a?.mid}}">Details</button>
-                                    <button type="button" id="xxx" class="btn btn-success" (click)="add_to_cart(a)"><i
+                                    <button type="button" class="btn btn-success" (click)="add_to_cart(a)"><i
                                             class="fa-solid fa-cart-shopping fa-xl"></i></button>
                                 </div>
                             </div>
@@ -107,8 +129,21 @@
                                 <img src="{{h?.mImg1}}" class="card-img-top">
                                 <hr>
                                 <div class="card-body">
-                                    <h6 class="card-title">{{h.mName}}</h6>
-                                    <p>Expiry date: {{h?.expiry}} <br>Price: {{h?.price}}</p>
+                                    <h5 class="card-title">{{h.mName}}</h5>
+                                    <h6>Expiry date: {{h?.expiry}}</h6>
+                                    <p class="mt-3">{{h?.price | offer:20 | currency:'INR'}}<br>
+                                        <span style="font-size: 13px;">
+                                            <del>MRP {{h?.price | currency:'INR'}}</del>&nbsp;
+                                            <span
+                                                style="color: white;
+                                                background-color: green;
+                                                font-size: 10px;
+                                                padding: 1px;
+                                                border-radius: 3px;"
+                                                > 20% OFF
+                                            </span>
+                                        </span>
+                                    </p>
                                     <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
                                 </div>
                                 <div class="btn-group" role="group" aria-label="Basic example">
@@ -132,3 +167,4 @@
         <!--------------------------------------- Healthcare end -------------------------------->
     </div>
 </main>
+<lib-toastify-toast-container [position]="'bottom-right'"></lib-toastify-toast-container>

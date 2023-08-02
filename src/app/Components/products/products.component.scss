@@ -12,54 +12,64 @@
     background-color: rgb(63, 207, 236);
     border-radius: 10px 10px 0px 0px;
     position: relative;
+
+    h5 {
+        font-family: 'Titillium Web', sans-serif;
+        margin-left: 11%;
+        padding-top: 12px;
+    }
+
+    .icons {
+        background-color: white;
+        height: 60px;
+        width: 60px;
+        border-radius: 50%;
+        position: absolute;
+        top: 80%;
+        left: 5%;
+        transform: translate(-50%, -50%);
+
+        img {
+            height: 40px;
+            width: 40px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
 }
-.heading h5 {
-    font-family: 'Titillium Web', sans-serif;
-    margin-left: 11%;
-    padding-top: 12px;
-}
-.heading .icons {
-    background-color: white;
-    height: 60px;
-    width: 60px;
-    border-radius: 50%;
-    position: absolute;
-    top: 80%;
-    left: 5%;
-    transform: translate(-50%, -50%);
-}
-.heading .icons img {
-    height: 40px;
-    width: 40px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
+
 .Body {
     padding: 0px 30px 10px 30px;
+
+    .card {
+        padding: 0%;
+        border-radius: 10px;
+        height: 410px;
+        margin-top: 30px;
+
+        img {
+            height: 160px;
+            object-fit: contain;
+        }
+
+        .card-body {
+            padding: 0%;
+            border-radius: 10px;
+            padding: 0px 5px;
+        }
+
+        .btn-success:active {
+            background-color: #00b557 !important;
+        }
+    }
+
+    .more-less-btn {
+        margin: 45px auto 20px auto;
+    }
 }
-.Body .card {
-    padding: 0%;
-    border-radius: 10px;
-    height: 390px;
-    margin-top: 30px;
-}
-.Body .card-body {
-    padding: 0%;
-    border-radius: 10px;
-    padding: 0px 5px;
-}
-.Body img {
-    height: 160px;
-    object-fit: contain;
-}
-.Body .more-less-btn {
-    margin: 45px auto 20px auto;
-}
-.btn-success:active {
-    background-color: #00b557 !important;
-}
+
 // .btn-group {
 //     margin: 0px 5px;
 // }
@@ -76,10 +86,12 @@
     // background-color: rgba(227, 250, 255, 0.7);
     background-color: rgb(255, 255, 255);
     border-bottom: 1px solid rgb(63, 207, 236);
+
+    .heading {
+        background-color: rgb(63, 207, 236);
+    }
 }
-.allopathicDIV .heading {
-    background-color: rgb(63, 207, 236);
-}
+
 // -------- Allopathic Medicine -----------
 
 // -------- Ayurvedic Medicine -----------
@@ -91,10 +103,12 @@
     // background-color: rgba(227, 255, 210, 0.7);
     background-color: rgb(255, 255, 255);
     border-bottom: 1px solid rgb(151, 204, 117);
+
+    .heading {
+        background-color: rgb(151, 204, 117);
+    }
 }
-.ayurvedicDIV .heading {
-    background-color: rgb(151, 204, 117);
-}
+
 // -------- Ayurvedic Medicine -----------
 
 // -------- Healthcare Medicine -----------
@@ -106,9 +120,86 @@
     // background-color: rgba(212, 230, 255, 0.7);
     background-color: rgb(255, 255, 255);
     border-bottom: 1px solid rgb(32, 85, 159);
+
+    .heading {
+        background-color: rgb(32, 85, 159);
+        color: white;
+    }
 }
-.healthcareDIV .heading {
-    background-color: rgb(32, 85, 159);
-    color: white;
-}
+
 // -------- Healthcare Medicine -----------
+
+
+// ---------------- for card size ---------------
+@media (max-width: 1150px) {
+    .Body .card {
+        height: 430px !important;
+    }
+}
+
+@media (max-width: 1026px) {
+    .Body .card {
+        height: 450px !important;
+    }
+}
+
+@media (max-width: 800px) {
+    .Body .card {
+        height: 513px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .Body .card {
+        height: 445px !important;
+    }
+}
+
+@media (max-width: 605px) {
+    .Body .card {
+        height: 480px !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .Body .card {
+        height: 445px !important;
+    }
+}
+// ---------------- for card size ---------------
+
+@media (max-width:865px) {
+    .heading {
+        h5 {
+            margin-left: 15%;
+        }
+
+        .icons {
+            left: 8%;
+        }
+    }
+}
+
+@media (max-width:600px) {
+    .heading {
+        h5 {
+            margin-left: 20%;
+        }
+
+        .icons {
+            left: 10%;
+        }
+    }
+}
+
+@media (max-width:400px) {
+    .heading {
+        h5 {
+            margin-left: 27%;
+        }
+
+        .icons {
+            left: 14%;
+        }
+    }
+}

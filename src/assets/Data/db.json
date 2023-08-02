@@ -1,0 +1,24 @@
+{
+  "appointments": [
+    {
+      "book_for": "Online Consultations",
+      "name": "Sung Jinwoo",
+      "age": "25",
+      "symptoms_testname": "Fever, Cough",
+      "phone": "9876543210",
+      "email": "sungjinwoo@gmaill.com",
+      "address": "Omnipresent",
+      "id": 1
+    },
+    {
+      "book_for": "Doctor Appointment",
+      "name": "John Wick",
+      "age": "25",
+      "symptoms_testname": "Fever",
+      "phone": "9876543211",
+      "email": "wickjohn@gmail.com",
+      "address": "City - Silda,\nState - West Bengal",
+      "id": 2
+    }
+  ]
+}

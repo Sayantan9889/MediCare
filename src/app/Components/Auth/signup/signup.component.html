@@ -1,1 +1,59 @@
-<p>signup works!</p>
+<!-- https://codingyaar.com/bootstrap-5-modal-form/ -->
+<div class="modal fade" id="SingnUpModal" tabindex="-1" aria-labelledby="ModalFormLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="btn-close btn-close-success" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+                <div class="myform">
+                    <h1 class="text-center">Sign Up</h1>
+                    <form [formGroup]="regData" (ngSubmit)="register()">
+                        <div class="mb-3 mt-4">
+                            <label for="first_name" class="form-label">First name</label>
+                            <input type="text" class="form-control" formControlName="first_name" required>
+                            <div *ngIf="regData.get('first_name')?.touched">
+                                <ng-container *ngIf="regData.get('first_name')?.hasError('required')"><p class="error">* Required field</p></ng-container>
+                                <ng-container *ngIf="regData.get('first_name')?.hasError('pattern')"><p class="error">* Minimum length 3 and First latter must be Capital</p></ng-container>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="last_name" class="form-label">Last name</label>
+                            <input type="text" class="form-control" formControlName="last_name" required>
+                            <div *ngIf="regData.get('last_name')?.touched">
+                                <ng-container *ngIf="regData.get('last_name')?.hasError('required')"><p class="error">* Required field</p></ng-container>
+                                <ng-container *ngIf="regData.get('last_name')?.hasError('pattern')"><p class="error">* Minimum length 3 and First latter must be Capital</p></ng-container>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email address</label>
+                            <input type="email" class="form-control" aria-describedby="emailHelp" formControlName="email" required>
+                            <div *ngIf="regData.get('email')?.touched">
+                                <ng-container *ngIf="regData.get('email')?.hasError('required')"><p class="error">* Required field</p></ng-container>
+                                <ng-container *ngIf="regData.get('email')?.hasError('pattern')"><p class="error">* Please provide a valid email address</p></ng-container>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" formControlName="password" required>
+                            <div *ngIf="regData.get('password')?.touched">
+                                <ng-container *ngIf="regData.get('password')?.hasError('required')"><p class="error">* Required field</p></ng-container>
+                                <ng-container *ngIf="regData.get('password')?.hasError('pattern')"><p class="error">* At least 8 characters, Uppercase letters, Lowercase letters, Special characters, Number</p></ng-container>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="profile_pic" class="form-label">Profile Picture</label>
+                            <input type="file" class="form-control" (change)="onFileSelection($event)" required>
+                            <div *ngIf="regData.get('password')?.touched && regData.get('password')?.hasError('required')">
+                                <p class="error">* Required field</p>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-light mt-3" data-bs-dismiss="modal" [disabled]="regData.invalid">SIGNUP</button>
+                        <p>Already have an account? <a data-bs-toggle="modal" data-bs-target="#ModalForm">Login here</a></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <app-login></app-login> -->

@@ -1,12 +1,12 @@
 .container {
-    height: 70vh;
+    min-height: 70vh;
 
     .card-header h3 {
         text-align: center;
     }
 
     .card-body {
-        padding: auto 60px;
+        padding: 20px 60px;
 
         .profPic {
             height: 100px;
@@ -26,7 +26,7 @@
     }
 }
 
-@media (max-width: 445px) {
+@media (max-width: 480px) {
         .card-body {
             .profPic {
                 float: none !important;
@@ -37,9 +37,10 @@
             }
             .userData {
                 float: none !important;
-                width: 70% !important;
+                width: 90% !important;
                 display: block !important;
                 margin: auto !important;
+                text-align: center;
             }
         }
     }

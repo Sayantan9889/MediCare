@@ -1,3 +1,4 @@
+import * as Aos from 'aos';
 import { Component } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o/public_api';
 import { MedicinesService } from 'src/app/Services/medicines.service';
@@ -56,6 +57,10 @@ export class HomeComponent {
       }
     }
     // console.log("Feature: ", this.onlyFeatureProd);
+
+
+
+    Aos.init();  // Animation On Scroll (AOS) - https://michalsnik.github.io/aos/
   }
 
 

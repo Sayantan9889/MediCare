@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastService } from 'angular-toastify';
 import { CartService } from 'src/app/Services/cart.service';
 import { MedicinesService } from 'src/app/Services/medicines.service';
 
@@ -17,7 +18,7 @@ export class ProductsComponent {
   AyurValue!: any;  //to store sliced and full array when pressing show more & show less button
   HealthValue!: any;  //to store sliced and full array when pressing show more & show less button
 
-  constructor(private med: MedicinesService, private cart:CartService, private router:Router) { }
+  constructor(private med: MedicinesService, private cart:CartService, private router:Router, private _toastService: ToastService) { }
 
   ngOnInit(): void {
     this.abc = this.med.products;
@@ -89,16 +90,6 @@ export class ProductsComponent {
 
   add_to_cart(product:any) {
     this.cart.AddToCart(product);
-    document.getElementById('xxx')?.innerHTML+(`<div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-    <div class="toast-header">
-      <img src="..." class="rounded me-2" alt="...">
-      <strong class="me-auto">Bootstrap</strong>
-      <small>11 mins ago</small>
-      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-    </div>
-    <div class="toast-body">
-      Hello, world! This is a toast message.
-    </div>
-  </div>`);
+    this._toastService.info('Added to cart');
   }
 }

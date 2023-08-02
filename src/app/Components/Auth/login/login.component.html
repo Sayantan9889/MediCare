@@ -1,25 +1,36 @@
-<div class="modal fade" id="ModalForm" tabindex="-1" aria-labelledby="ModalFormLabel" aria-hidden="true">
+<!-- https://codingyaar.com/bootstrap-5-modal-form/ -->
+ <div class="modal fade" id="ModalForm" tabindex="-1" aria-labelledby="ModalFormLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-body">
                 <button type="button" class="btn-close btn-close-success" data-bs-dismiss="modal"
                     aria-label="Close"></button>
                 <div class="myform">
-                    <h1 class="text-center">Login Form</h1>
+                    <h1 class="text-center">Login</h1>
                     <form [formGroup]="logData" (ngSubmit)="logIn()">
                         <div class="mb-3 mt-4">
                             <label for="email" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" formControlName="email">
+                            <input type="email" class="form-control" aria-describedby="emailHelp" formControlName="email" required="">
+                            <div *ngIf="logData.get('email')?.touched">
+                                <ng-container *ngIf="logData.get('email')?.hasError('required')"><p class="error">* Required field</p></ng-container>
+                                <ng-container *ngIf="logData.get('email')?.hasError('pattern')"><p class="error">* Please provide a valid email address</p></ng-container>
+                            </div>
                         </div>
                         <div class="mb-3">
                             <label for="password" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="password" formControlName="password">
+                            <input type="password" class="form-control" formControlName="password" required="">
+                            <div *ngIf="logData.get('password')?.touched">
+                                <ng-container *ngIf="logData.get('password')?.hasError('required')"><p class="error">* Required field</p></ng-container>
+                                <ng-container *ngIf="logData.get('password')?.hasError('pattern')"><p class="error">* At least 8 characters, Uppercase letters, Lowercase letters, Special characters, Number</p></ng-container>
+                            </div>
                         </div>
-                        <button type="submit" class="btn btn-light mt-3" data-bs-dismiss="modal">LOGIN</button>
-                        <p>Not a member? <a href="#">Signup now</a></p>
+                        <button type="submit" class="btn btn-light mt-3" data-bs-dismiss="modal" [disabled]="logData.invalid">LOGIN</button>
+                        <p>Not a member? <a data-bs-toggle="modal" data-bs-target="#SingnUpModal">Signup now</a></p>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<!-- <app-signup></app-signup> -->

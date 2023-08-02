@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MedicinesService } from 'src/app/Services/medicines.service';
 import { CartComponent } from '../cart/cart.component';
 import { CartService } from 'src/app/Services/cart.service';
+import { ToastService } from 'angular-toastify';
 
 @Component({
   selector: 'app-product-details',
@@ -18,7 +19,9 @@ export class ProductDetailsComponent {
   product!: any;
   mrp!: any;
 
-  constructor(private med: MedicinesService, private activedRoute: ActivatedRoute, public cart: CartService, private route: Router) { }
+  @ViewChild('target') 'Target':ElementRef<any>; //To scroll to top every time enter the component
+
+  constructor(private med: MedicinesService, private activedRoute: ActivatedRoute, public cart: CartService, private route: Router, private _toastService: ToastService) { }
 
   ngOnInit(): void {
     this.activedRoute.paramMap.subscribe((params) => {
@@ -33,10 +36,18 @@ export class ProductDetailsComponent {
       this.product = this.pCatagory.medicine.filter((res: any) => this.pId === res.mid)
       console.log("Selected product: ", this.product);
     });
+
+    this.Target.nativeElement.scrollIntoView(); //To scroll to top every time enter the component
+  }
+
+  ngAfterViewInit() {
+    //Same line need both here and above in ngOnInit to work properly
+    this.Target.nativeElement.scrollIntoView(); // To scroll to top every time enter the component
   }
 
   add_to_cart(prod: any) {
     this.cart.AddToCart(prod);
     this.btnTxt = "ADD MORE";
+    this._toastService.info('Added to cart');
   }
 }

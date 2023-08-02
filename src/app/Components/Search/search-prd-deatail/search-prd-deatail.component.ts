@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ToastService } from 'angular-toastify';
 import { CartService } from 'src/app/Services/cart.service';
 import { MedicinesService } from 'src/app/Services/medicines.service';
 
@@ -26,7 +27,7 @@ export class SearchPrdDeatailComponent {
   mrp!: any;
   btnTxt = 'ADD TO Cart';
 
-  constructor(private med: MedicinesService, private activateRoute: ActivatedRoute, private cart: CartService) { }
+  constructor(private med: MedicinesService, private activateRoute: ActivatedRoute, private cart: CartService, private _toastService: ToastService) { }
 
   ngOnInit(): void {
     this.products = this.med.products;
@@ -50,5 +51,6 @@ export class SearchPrdDeatailComponent {
   add_to_cart(product: any) {
     this.cart.AddToCart(product);
     this.btnTxt = "ADD MORE";
+    this._toastService.info('Added to cart');
   }
 }

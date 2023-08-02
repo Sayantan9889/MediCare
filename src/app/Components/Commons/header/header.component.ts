@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { StorageService } from 'src/app/Services/AuthServices/storage.service';
 import { CartService } from 'src/app/Services/cart.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-header',
@@ -16,14 +17,31 @@ export class HeaderComponent {
   fname!: string;
   lname!: string;
 
-  constructor(private route: Router, private cartSer:CartService, private storage:StorageService) { }
+  constructor(private route: Router,
+    private cartSer:CartService,
+    private storage:StorageService,
+    private location:Location) { }
 
   ngOnInit():void {
     this.cartItems = this.cartSer.cartItem;
+    // console.log("Location: ", this.location.path());
+
   }
 
-  search(data: NgForm) {
-    let Med = data.value.med;
+  activeLoc() {
+    console.log("Location: ", this.location.path());
+    return this.location.path();
+  }
+
+  // search(data: NgForm) {
+  //   let Med = data.value.med;
+  //   // console.log(Med);
+  //   if (Med !== "") {  // checking if entered some text or not
+  //     this.route.navigate([`search/${Med}`]);
+  //   }
+  // }
+  search(event: Event) {
+    let Med = (event?.target as HTMLInputElement)?.value;
     // console.log(Med);
     if (Med !== "") {  // checking if entered some text or not
       this.route.navigate([`search/${Med}`]);

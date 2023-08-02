@@ -25,6 +25,13 @@ import { OfferPipe } from './AllPipe/offer.pipe';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ProfileComponent } from './Components/Auth/profile/profile.component';
 import { HttpInterceptorService } from './Services/AuthServices/http-interceptor.service';
+import { AppointmentComponent } from './Components/appointment/appointment.component';  // angular tostify
+
+//https://www.npmjs.com/package/angular-toastify
+import { ToastService, AngularToastifyModule } from 'angular-toastify';
+
+//https://www.npmjs.com/package/ngx-pagination
+import { NgxPaginationModule } from 'ngx-pagination'; // to add pagination
 
 @NgModule({
   declarations: [
@@ -43,7 +50,8 @@ import { HttpInterceptorService } from './Services/AuthServices/http-interceptor
     LoginComponent,
     SignupComponent,
     OfferPipe,
-    ProfileComponent
+    ProfileComponent,
+    AppointmentComponent
   ],
   imports: [
     BrowserModule,
@@ -52,12 +60,15 @@ import { HttpInterceptorService } from './Services/AuthServices/http-interceptor
     ReactiveFormsModule,
     CarouselModule,   // for owl carousel
     BrowserAnimationsModule,    // for owl carousel
-    HttpClientModule
+    HttpClientModule,
+    AngularToastifyModule, // for tostify
+    NgxPaginationModule // to use pagination
   ],
   providers: [
     MedicinesService,
     CartService,
     OfferPipe,   // To use OfferPipe in cart service
+    ToastService,  // to use tostify
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpInterceptorService,

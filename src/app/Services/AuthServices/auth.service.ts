@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Login, Registration } from 'src/app/AuthClass/auth';
+import { Login, Registration } from 'src/app/Class/AuthClass/auth';
 import { StorageService } from './storage.service';
 
 @Injectable({
@@ -21,5 +21,9 @@ export class AuthService {
 
   profile_details():Observable<Registration[]> {
     return this.http.get<Registration[]>(this.profile_api);
+  }
+
+  register_user(data:any):Observable<Registration[]> {
+    return this.http.post<Registration[]>(this.registration_api, data);
   }
 }

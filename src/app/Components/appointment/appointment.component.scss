@@ -1,0 +1,168 @@
+main {
+    background-color: white;
+}
+
+.banner {
+    background-image: url("../../../assets/Appointment/bg.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 70vh;
+
+    .banner-bg {
+        width: 100%;
+        height: 100%;
+        background-color: rgba(127, 255, 212, 0.1);
+        padding-top: 80px;
+
+        .content {
+            width: 50%;
+            height: auto;
+            margin-left: 10%;
+
+            h1 {
+                color: #17956d;
+                font-weight: 700;
+                margin-bottom: 5px;
+            }
+
+            button {
+                width: 23%;
+                height: 45px;
+                margin-top: 40px;
+                color: white;
+                background-color: #17956d;
+                border-radius: 0px;
+
+                &:active {
+                    background-color: #59cba7;
+                }
+            }
+        }
+    }
+}
+
+.divider {
+    width: 5%;
+    height: 2px;
+    background-color: #50b897;
+    margin: auto;
+    margin-top: 35px;
+}
+
+#Body {
+    padding: 30px;
+
+    .OurService {
+        text-align: center;
+        width: 95%;
+        margin: 40px auto;
+
+        .cards {
+            margin: 3% auto;
+            width: 80%;
+            // background-color: aqua;
+
+            .card {
+                border: 0px;
+                background-color: transparent;
+
+                img {
+                    height: 50px;
+                    width: 50px;
+                    display: inline-block;
+                    margin: auto;
+                }
+            }
+        }
+    }
+
+    .booking {
+        width: 70%;
+        margin: 80px auto 40px auto;
+        padding: 2.3em;
+        max-width: 100%;
+        border-radius: 20px;
+        box-shadow: 0px 0px 6px 0px rgba(22, 22, 26, 0.18);
+
+        h1 {
+            font-size: 2.3em;
+            margin-bottom: -5px;
+            // color: #009868;
+        }
+
+        .form-label {
+            font-size: 18px;
+            margin-top: 20px;
+            margin-bottom: -5px;
+        }
+
+        .form-control {
+            background-color: inherit;
+        }
+
+        .form-control, .form-select {
+            color: #009868;
+            padding-left: 0;
+            border: 0;
+            border-radius: 0;
+            border-bottom: 1px solid #009868;
+            margin-top: -3px;
+
+            &:focus {
+                box-shadow: inset 0 -1px 0 #009868;
+            }
+        }
+
+        .btn {
+            width: 30%;
+            font-size: 20px;
+            background-color: #009868;
+            color: white;
+            border-radius: 5px;
+            padding: 0.3em 0;
+            display: block;
+            margin: 70px auto 10px auto !important;
+
+            &:hover {
+                background-color: #00a6ff;
+                color: #ffffff;
+                border-color: #00a6ff;
+
+            }
+
+            &:active {
+                background-color: #0091df;
+                // color: #000000;
+                border-color: #0091df;
+
+            }
+
+            &:disabled {
+                background-color: #1f7a5dbb;
+                cursor: none;
+            }
+        }
+
+        p {
+            text-align: center;
+            padding-top: 2em;
+            color: grey;
+
+            a {
+                color: #457ef8;
+                text-decoration: none;
+
+                &:hover {
+                    color: #009868;
+                }
+            }
+        }
+    }
+}
+
+.error {
+    color: red !important;
+    text-align: right !important;
+    font-size: 10px;
+}

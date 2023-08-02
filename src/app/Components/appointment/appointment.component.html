@@ -1,0 +1,119 @@
+<main>
+    <div class="banner">
+        <div class="banner-bg">
+            <div class="content">
+                <h1>Book Appointment</h1>
+                <h4>Book doctor appointment online instantly with our top Specialist</h4>
+                <button class="btn" (click)="scroll(bookingStart)">Book Now</button>
+            </div>
+        </div>
+    </div>
+    <div id="Body">
+        <div class="OurService">
+            <p style="color: rgb(0, 132, 255); "><small>Our Services</small></p>
+            <h3>Services For Your Health</h3>
+
+            <div class="divider"></div>
+
+            <div class="cards">
+                <div class="row row-cols-1 row-cols-md-3 g-5 mt-3">
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="../../../assets/Appointment/icon-01.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Doctor Appointment</h5>
+                                <p class="card-text">Book an appointment with renowned physicians from MediCare</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="../../../assets/Appointment/icon-02.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Online Consultations</h5>
+                                <p class="card-text">Consult qualified and registered doctors on chat/call</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="../../../assets/Appointment/icon-10.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Labs Tests</h5>
+                                <p class="card-text">Book lab tests online for hassle-free, home sample collection
+                                    service.
+                                    Get reports online.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider" style="width: 20%;"></div>
+
+        <div class="booking" #bookingStart>
+            <h1 class="text-center">Book an Appointment</h1>
+            <div class="divider" style="width: 40%; margin-bottom: 60px;"></div>
+            <form [formGroup]="bookedData" (ngSubmit)="booking()">
+                <div class="mb-3 mt-4">
+                    <label for="book-for" class="form-label">Booking For</label>
+                    <select class="form-select" formControlName="book_for" required>
+                        <option value="" disabled selected hidden>Appointment / Consultations / Lab Test</option>
+                        <option value="Doctor Appointment">&nbsp; Doctor Appointment</option>
+                        <option value="Online Consultations">&nbsp; Online Consultations</option>
+                        <option value="Lab Test">&nbsp; Lab Test</option>
+                    </select>
+                    <ng-container *ngIf="bookedData.get('book_for')?.touched">
+                        <ng-container *ngIf="bookedData.get('book_for')?.hasError('required')"><p class="error">* Required field</p></ng-container>
+                    </ng-container>
+                </div>
+                <div class="mb-3 mt-4">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" formControlName="name" required>
+                    <ng-container *ngIf="bookedData.get('name')?.touched">
+                        <ng-container *ngIf="bookedData.get('name')?.hasError('required')"><p class="error">* Required field</p></ng-container>
+                    </ng-container>
+                </div>
+                <div class="mb-3">
+                    <label for="age" class="form-label">Age</label>
+                    <input type="text" class="form-control" formControlName="age" required>
+                    <ng-container *ngIf="bookedData.get('age')?.touched">
+                        <ng-container *ngIf="bookedData.get('age')?.hasError('required')"><p class="error">* Required field</p></ng-container>
+                    </ng-container>
+                </div>
+                <div class="mb-3">
+                    <label for="symptoms_testname" class="form-label">Symptomps / Test name</label>
+                    <textarea type="text" class="form-control" formControlName="symptoms_testname" style="height: 70px;" required></textarea>
+                    <ng-container *ngIf="bookedData.get('symptoms_testname')?.touched">
+                        <ng-container *ngIf="bookedData.get('symptoms_testname')?.hasError('required')"><p class="error">* Required field</p></ng-container>
+                    </ng-container>
+                </div>
+                <div class="mb-3">
+                    <label for="phone" class="form-label">Phone</label>
+                    <input type="text" class="form-control" formControlName="phone" required>
+                    <ng-container *ngIf="bookedData.get('phone')?.touched">
+                        <ng-container *ngIf="bookedData.get('phone')?.hasError('required')"><p class="error">* Required field</p></ng-container>
+                    </ng-container>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" aria-describedby="emailHelp" formControlName="email" required>
+                    <ng-container *ngIf="bookedData.get('email')?.touched">
+                        <ng-container *ngIf="bookedData.get('email')?.hasError('required')"><p class="error">* Required field</p></ng-container>
+                    </ng-container>
+                </div>
+                <div class="mb-3">
+                    <label for="address" class="form-label">Address</label>
+                    <textarea class="form-control" formControlName="address" style="height: 100px;" required>
+                    </textarea>
+                    <ng-container *ngIf="bookedData.get('address')?.touched">
+                        <ng-container *ngIf="bookedData.get('address')?.hasError('required')"><p class="error">* Required field</p></ng-container>
+                    </ng-container>
+                </div>
+                <button type="submit" class="btn btn-light" [disabled]="bookedData.invalid">BOOK</button>
+                <p>Already have an account? <a data-bs-toggle="modal" data-bs-target="#ModalForm">Login here</a></p>
+            </form>
+        </div>
+    </div>
+</main>
