@@ -28,7 +28,8 @@ export class LoginComponent {
 
       if (user.status === 200) {
         alert("Welcome " + userResponse.data.first_name + " " + userResponse.data.last_name + " !");
-        this.storage.setData(userResponse.data.first_name, userResponse.data.last_name, userResponse.data.email, userResponse.token);
+
+        this.storage.setData(userResponse.data.first_name, userResponse.data.last_name, userResponse.data.email, userResponse.token, userResponse.data.profile_pic);
       }
       else {
         alert(userResponse.message);

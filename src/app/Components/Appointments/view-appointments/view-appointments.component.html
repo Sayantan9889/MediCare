@@ -1,0 +1,26 @@
+<main>
+    <div class="appoint">
+        <ng-container *ngFor="let a of appointments">
+            <div class="card mb-5">
+                <div class="row g-0">
+                    <div class="col-md-12">
+                        <div class="card-header">
+                            <h4 class="card-title">{{a.book_for}}</h4>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Name: {{a.name}}</h5>
+                            <p class="card-text">Age: {{a.age}}</p>
+                            <p class="card-text">Symptoms/Tests: {{a.symptoms_testname}}</p>
+                            <p class="card-text">Phone: {{a.phone}}</p>
+                            <p class="card-text">Mail: {{a.email}}</p>
+                            <p class="card-text">Address: {{a.address}}</p>
+                            <p class="card-text" style="text-align: center;"><small class="text-muted">Booked on {{a.bookedOn}}</small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</main>
+
+<router-outlet></router-outlet>

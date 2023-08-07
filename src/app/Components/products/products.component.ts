@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastService } from 'angular-toastify';
+import { StorageService } from 'src/app/Services/AuthServices/storage.service';
 import { CartService } from 'src/app/Services/cart.service';
 import { MedicinesService } from 'src/app/Services/medicines.service';
 
@@ -18,7 +19,11 @@ export class ProductsComponent {
   AyurValue!: any;  //to store sliced and full array when pressing show more & show less button
   HealthValue!: any;  //to store sliced and full array when pressing show more & show less button
 
-  constructor(private med: MedicinesService, private cart:CartService, private router:Router, private _toastService: ToastService) { }
+  constructor(private med: MedicinesService,
+    private cart: CartService,
+    private router: Router,
+    private _toastService: ToastService,
+    private storage:StorageService) { }
 
   ngOnInit(): void {
     this.abc = this.med.products;
@@ -88,8 +93,17 @@ export class ProductsComponent {
 
 
 
-  add_to_cart(product:any) {
-    this.cart.AddToCart(product);
-    this._toastService.info('Added to cart');
+  add_to_cart(product: any) {
+    if (this.loggedIn()) {
+      this.cart.AddToCart(product);
+      this._toastService.info('Added to cart');
+    }
+    else {
+      alert("Please log in first")
+    }
+  }
+
+  loggedIn() {
+    return this.storage.getToken();
   }
 }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ToastService } from 'angular-toastify';
+import { StorageService } from 'src/app/Services/AuthServices/storage.service';
 import { CartService } from 'src/app/Services/cart.service';
 import { MedicinesService } from 'src/app/Services/medicines.service';
 
@@ -27,7 +28,7 @@ export class SearchPrdDeatailComponent {
   mrp!: any;
   btnTxt = 'ADD TO Cart';
 
-  constructor(private med: MedicinesService, private activateRoute: ActivatedRoute, private cart: CartService, private _toastService: ToastService) { }
+  constructor(private med: MedicinesService, private activateRoute: ActivatedRoute, private cart: CartService, private storage: StorageService, private _toastService: ToastService) { }
 
   ngOnInit(): void {
     this.products = this.med.products;
@@ -43,14 +44,23 @@ export class SearchPrdDeatailComponent {
       this.pId = params.get('pid');
       // console.log("Collected product name: ", this.pid);
 
-      this.searchedProd = this.allProd.filter((prod) => this.pId===prod.mid);
-      console.log("Searched Items: ", this.searchedProd);
+      this.searchedProd = this.allProd.filter((prod) => this.pId === prod.mid);
+      // console.log("Searched Items: ", this.searchedProd);
     })
   }
 
   add_to_cart(product: any) {
-    this.cart.AddToCart(product);
-    this.btnTxt = "ADD MORE";
-    this._toastService.info('Added to cart');
+    if (this.loggedIn()) {
+      this.cart.AddToCart(product);
+      this.btnTxt = "ADD MORE";
+      this._toastService.info('Added to cart');
+    }
+    else {
+      alert("Please log in first")
+    }
+  }
+
+  loggedIn() {
+    return this.storage.getToken();
   }
 }

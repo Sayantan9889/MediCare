@@ -503,76 +503,28 @@ export class MedicinesService {
           price: '2310',
           featuredProd: 'true'
         },
-        // {
-        //   mid: 'h02',
-        //   mName: 'Omron Blood Pressure Monitor HEM-7124',
-        //   genericName: 'Blood Pressure Monitor',
-        //   mImg1:'assets/Healthcare/BPmonitor_1.jpg',
-        //   mImg2:'assets/Healthcare/BPmonitor_2.jpg',
-        //   uses: 'OMRON HEM-7124 Automatic Blood Pressure Monitor is a compact, fully automatic monitor that measures blood pressure (BP) and pulse rate simply and quickly.',
-        //   expiry: 'NA',
-        //   price: '2310',
-        //   featuredProd:'true'
-        // },
-        // {
-        //   mid: 'h03',
-        //   mName: 'Omron Blood Pressure Monitor HEM-7124',
-        //   genericName: 'Blood Pressure Monitor',
-        //   mImg1:'assets/Healthcare/BPmonitor_1.jpg',
-        //   mImg2:'assets/Healthcare/BPmonitor_2.jpg',
-        //   uses: 'OMRON HEM-7124 Automatic Blood Pressure Monitor is a compact, fully automatic monitor that measures blood pressure (BP) and pulse rate simply and quickly.',
-        //   expiry: 'NA',
-        //   price: '2310',
-        //   featuredProd:'true'
-        // },
-        // {
-        //   mid: 'h04',
-        //   mName: 'Omron Blood Pressure Monitor HEM-7124',
-        //   genericName: 'Blood Pressure Monitor',
-        //   mImg1:'assets/Healthcare/BPmonitor_1.jpg',
-        //   mImg2:'assets/Healthcare/BPmonitor_2.jpg',
-        //   uses: 'OMRON HEM-7124 Automatic Blood Pressure Monitor is a compact, fully automatic monitor that measures blood pressure (BP) and pulse rate simply and quickly.',
-        //   expiry: 'NA',
-        //   price: '2310',
-        //   featuredProd:'true'
-        // },
-        // {
-        //   mid: 'h05',
-        //   mName: 'Omron Blood Pressure Monitor HEM-7124',
-        //   genericName: 'Blood Pressure Monitor',
-        //   mImg1:'assets/Healthcare/BPmonitor_1.jpg',
-        //   mImg2:'assets/Healthcare/BPmonitor_2.jpg',
-        //   uses: 'OMRON HEM-7124 Automatic Blood Pressure Monitor is a compact, fully automatic monitor that measures blood pressure (BP) and pulse rate simply and quickly.',
-        //   expiry: 'NA',
-        //   price: '2310',
-        //   featuredProd:'true'
-        // },
-
-
-
-
-        // {
-        //   mid: 'h02',
-        //   mName: 'Stethoscope',
-        //   genericName: '',
-        //   mImg1:'assets/Healthcare/',
-        //   mImg2:'assets/Healthcare/',
-        //   uses: '',
-        //   expiry: '',
-        //   price: '',
-        //   featuredProd:''
-        // },
-        // {
-        //   mid: 'h03',
-        //   mName: 'Hand sanitizer',
-        //   genericName: '',
-        //   mImg1:'assets/Healthcare/',
-        //   mImg2:'assets/Healthcare/',
-        //   uses: '',
-        //   expiry: '',
-        //   price: '',
-        //   featuredProd:''
-        // },
+        {
+          mid: 'h02',
+          mName: 'Newnik Basic Stethoscope',
+          genericName: 'Stethoscope',
+          mImg1:'assets/Healthcare/Stethoscope_1.jpg',
+          mImg2:'assets/Healthcare/Stethoscope_2.jpg',
+          uses: 'can be used to listen to the sounds made by the heart, lungs or intestines, as well as blood flow in arteries and veins.',
+          expiry: 'NA',
+          price: '639.00',
+          featuredProd:'false'
+        },
+        {
+          mid: 'h03',
+          mName: 'Dettol Instant Hand Sanitizer',
+          genericName: 'Hand sanitizer',
+          mImg1:'assets/Healthcare/Sanitizer_1.jpg',
+          mImg2:'assets/Healthcare/Sanitizer_2.jpg',
+          uses: 'Kills pathogens present on our hands and diminishes transmission of germs also from one person to another. Sanitisers have ethyl alcohol, isopropyl alcohol, and the antibacterial substance triclosan.',
+          expiry: 'Sep 2024',
+          price: '100.00',
+          featuredProd:'flase'
+        },
         // {
         //   mid: 'h04',
         //   mName: 'Band aid',

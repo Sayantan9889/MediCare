@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { StorageService } from 'src/app/Services/AuthServices/storage.service';
 
 @Component({
   selector: 'app-footer',

@@ -1,0 +1,91 @@
+<main>
+    <div class="pamnt text-center">
+        <img class="mb-4" src="../../../../assets/logos/MediCare_Logo_Green_Horizontal_Transparent.png" alt="MediCare"
+            width="200" height="auto">
+        <h3 class="mb-3 fw-bold" style="font-family: 'Titillium Web';">Enter Card Details</h3>
+
+        <form class="form-signin">
+            <div class="form-floating my-3">
+                <input type="text" class="form-control" id="floatingInput1" placeholder="name@example.com">
+                <!--  formControlName="first_name" -->
+                <label for="floatingInput1">First Name</label>
+            </div>
+            <div class="form-floating my-3">
+                <input type="text" class="form-control" id="floatingPassword" placeholder="Password">
+                <!--  formControlName="last_name" -->
+                <label for="floatingPassword">Last Name</label>
+            </div>
+
+            <div class="form-floating my-3">
+                <input type="text" class="form-control" id="floatingInput2" placeholder="0000 0000 0000 0000">
+                <!--  formControlName="card_number" -->
+                <label for="floatingInput2">Card Number</label>
+            </div>
+
+            <div class="row">
+                <div class="form-floating my-3 col-8">
+                    <input type="text" class="form-control" id="floatingInput3" placeholder="mm/yyyy">
+                    <!-- formControlName="exp_date"  -->
+                    <label for="floatingInput3" class="ms-2">Expiry date [mm/yyyy]</label>
+                </div>
+                <div class="form-floating my-3 col-4">
+                    <input type="text" class="form-control" id="floatingInput4" placeholder="123">
+                    <!--  formControlName="CVV" -->
+                    <label for="floatingInput4" class="ms-2">Enter CVV</label>
+                </div>
+            </div>
+
+            <div class="row style">
+                <div class="col-2">
+                    <img src="../../../../assets/Payment/RuPay.png" alt="" class="image img-fluid">
+                </div>
+                <div class="col-2">
+                    <img src="../../../../assets/Payment/visa.jpg" alt="" class="image img-fluid">
+                </div>
+                <div class="col-2">
+                    <img src="../../../../assets/Payment/MasterCard.png" alt="" class="image img-fluid">
+                </div>
+                <div class="col-2">
+                    <img src="../../../../assets/Payment/American_Express.png" alt="" class="image img-fluid">
+                </div>
+                <div class="col-2">
+                    <img src="../../../../assets/Payment/Discover.png" alt="" class="image img-fluid">
+                </div>
+                <div class="col-2">
+                    <img src="../../../../assets/Payment/PayPal.jpg" alt="" class="image img-fluid">
+                </div>
+            </div>
+            <!-- Button trigger PaymentDoneModal -->
+            <button class="w-100 btn btn-lg btn-info fw-bold" data-bs-toggle="modal" data-bs-target="#PaymentDoneModal"
+                (click)="onPay()">Pay</button>
+            <p class="mt-5 mb-3 text-muted">© 2017-2021</p>
+        </form>
+    </div>
+</main>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="PaymentDoneModal" tabindex="-1" aria-labelledby="PaymentDoneModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body position-relative text-center">
+                <button type="button" class="btn-close position-absolute end-0 translate-middle mt-2"
+                    data-bs-dismiss="modal" aria-label="Close"></button>
+                <ng-container *ngIf="wait; else waitEnded">
+                    <div class="spinner-border text-info mt-5" style="width: 5rem; height: 5rem;" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <h4 class="mt-3">Wait while processing...</h4>
+                </ng-container>
+                <ng-template #waitEnded>
+                    <img src="../../../../assets/Payment/Done.jpg" class="w-50 h-50">
+                    <h3>Payment Done</h3>
+                    <h5 class="text-muted">Your order is placed successfully</h5>
+                </ng-template>
+                <button type="button" class="btn btn-lg btn-success mt-5 mb-3 px-5 " data-bs-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -22,16 +22,20 @@ import { CartBadgePipe } from './AllPipe/cart-badge.pipe';
 import { LoginComponent } from './Components/Auth/login/login.component';
 import { SignupComponent } from './Components/Auth/signup/signup.component';
 import { OfferPipe } from './AllPipe/offer.pipe';
+import { DatePipe } from '@angular/common';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ProfileComponent } from './Components/Auth/profile/profile.component';
 import { HttpInterceptorService } from './Services/AuthServices/http-interceptor.service';
-import { AppointmentComponent } from './Components/appointment/appointment.component';  // angular tostify
+import { AppointmentComponent } from './Components/Appointments/appointment/appointment.component';  // angular tostify
+import { ContactUsComponent } from './Components/Commons/contact-us/contact-us.component';
+import { AddressComponent } from './Components/Buy/address/address.component';
+import { PaymentComponent } from './Components/Buy/payment/payment.component';
 
 //https://www.npmjs.com/package/angular-toastify
 import { ToastService, AngularToastifyModule } from 'angular-toastify';
 
 //https://www.npmjs.com/package/ngx-pagination
-import { NgxPaginationModule } from 'ngx-pagination'; // to add pagination
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -51,7 +55,10 @@ import { NgxPaginationModule } from 'ngx-pagination'; // to add pagination
     SignupComponent,
     OfferPipe,
     ProfileComponent,
-    AppointmentComponent
+    AppointmentComponent,
+    ContactUsComponent,
+    PaymentComponent,
+    AddressComponent
   ],
   imports: [
     BrowserModule,
@@ -73,7 +80,8 @@ import { NgxPaginationModule } from 'ngx-pagination'; // to add pagination
       provide: HTTP_INTERCEPTORS,
       useClass: HttpInterceptorService,
       multi: true
-    }
+    },
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })

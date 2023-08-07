@@ -73,6 +73,7 @@
                     <input type="text" class="form-control" formControlName="name" required>
                     <ng-container *ngIf="bookedData.get('name')?.touched">
                         <ng-container *ngIf="bookedData.get('name')?.hasError('required')"><p class="error">* Required field</p></ng-container>
+                        <ng-container *ngIf="bookedData.get('name')?.hasError('pattern')"><p class="error">* * Minimum length 3 and First latter must be Capital</p></ng-container>
                     </ng-container>
                 </div>
                 <div class="mb-3">
@@ -80,6 +81,7 @@
                     <input type="text" class="form-control" formControlName="age" required>
                     <ng-container *ngIf="bookedData.get('age')?.touched">
                         <ng-container *ngIf="bookedData.get('age')?.hasError('required')"><p class="error">* Required field</p></ng-container>
+                        <ng-container *ngIf="bookedData.get('age')?.hasError('pattern')"><p class="error">* Age must be number</p></ng-container>
                     </ng-container>
                 </div>
                 <div class="mb-3">
@@ -94,6 +96,7 @@
                     <input type="text" class="form-control" formControlName="phone" required>
                     <ng-container *ngIf="bookedData.get('phone')?.touched">
                         <ng-container *ngIf="bookedData.get('phone')?.hasError('required')"><p class="error">* Required field</p></ng-container>
+                        <ng-container *ngIf="bookedData.get('phone')?.hasError('pattern')"><p class="error">* Please provide a valid phone number</p></ng-container>
                     </ng-container>
                 </div>
                 <div class="mb-3">
@@ -101,6 +104,7 @@
                     <input type="email" class="form-control" aria-describedby="emailHelp" formControlName="email" required>
                     <ng-container *ngIf="bookedData.get('email')?.touched">
                         <ng-container *ngIf="bookedData.get('email')?.hasError('required')"><p class="error">* Required field</p></ng-container>
+                        <ng-container *ngIf="bookedData.get('email')?.hasError('pattern')"><p class="error">* Please provide a valid email</p></ng-container>
                     </ng-container>
                 </div>
                 <div class="mb-3">
@@ -111,8 +115,9 @@
                         <ng-container *ngIf="bookedData.get('address')?.hasError('required')"><p class="error">* Required field</p></ng-container>
                     </ng-container>
                 </div>
+
+                <!-- <input type="text" class="form-control" formControlName="bookedOn" hidden> add Booking date -->
                 <button type="submit" class="btn btn-light" [disabled]="bookedData.invalid">BOOK</button>
-                <p>Already have an account? <a data-bs-toggle="modal" data-bs-target="#ModalForm">Login here</a></p>
             </form>
         </div>
     </div>

@@ -1,6 +1,7 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ToastService } from 'angular-toastify';
+import { StorageService } from 'src/app/Services/AuthServices/storage.service';
 import { CartService } from 'src/app/Services/cart.service';
 import { MedicinesService } from 'src/app/Services/medicines.service';
 
@@ -9,14 +10,17 @@ import { MedicinesService } from 'src/app/Services/medicines.service';
   templateUrl: './sub-product.component.html',
   styleUrls: ['./sub-product.component.scss']
 })
-export class SubProductComponent implements AfterViewInit{
-  p:number = 1;  // used in pagination
+export class SubProductComponent implements OnInit {
+  p: number = 1;  // used in pagination
 
   cId!: any;
   catMedicine!: any;
-  @ViewChild('target') 'Target':ElementRef<any>; //To scroll to top every time enter the component
 
-  constructor(private med: MedicinesService, private activateRoute: ActivatedRoute, private cart: CartService, private _toastService: ToastService) { }
+  constructor(private med: MedicinesService,
+    private activateRoute: ActivatedRoute,
+    private cart: CartService,
+    private _toastService: ToastService,
+    private storage:StorageService) { }
 
   ngOnInit(): void {
     this.activateRoute.paramMap.subscribe((param) => {
@@ -26,17 +30,19 @@ export class SubProductComponent implements AfterViewInit{
       this.catMedicine = this.med.products.filter((i: any) => i.id === this.cId);
       // console.log("Catagorized Product: ", this.catMedicine);
     })
-
-    this.Target.nativeElement.scrollIntoView(); //To scroll to top every time enter the component
-  }
-
-  ngAfterViewInit() {
-    //Same line need both here and above in ngOnInit to work properly
-    this.Target.nativeElement.scrollIntoView(); // To scroll to top every time enter the component
   }
 
   add_to_cart(product: any) {
-    this.cart.AddToCart(product);
-    this._toastService.info('Added to cart');
+    if (this.loggedIn()) {
+      this.cart.AddToCart(product);
+      this._toastService.info('Added to cart');
+    }
+    else {
+      alert("Please log in first")
+    }
+  }
+
+  loggedIn() {
+    return this.storage.getToken();
   }
 }

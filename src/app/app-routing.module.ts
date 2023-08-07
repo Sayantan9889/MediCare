@@ -10,8 +10,10 @@ import { AboutUsComponent } from './Components/Commons/about-us/about-us.compone
 import { CartComponent } from './Components/cart/cart.component';
 import { ProfileComponent } from './Components/Auth/profile/profile.component';
 import { AuthGuardGuard } from './Guard/auth-guard.guard';
-import { AppointmentComponent } from './Components/appointment/appointment.component';
-// import { LoginComponent } from './Components/Auth/login/login.component';
+import { AppointmentComponent } from './Components/Appointments/appointment/appointment.component';
+import { ContactUsComponent } from './Components/Commons/contact-us/contact-us.component';
+import { AddressComponent } from './Components/Buy/address/address.component';
+import { PaymentComponent } from './Components/Buy/payment/payment.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'/home', pathMatch:'full'},
@@ -23,9 +25,12 @@ const routes: Routes = [
   {path:'search/:prod/detail/:pid', component:SearchPrdDeatailComponent},
   {path:'about-us', component:AboutUsComponent},
   {path:'cart', component:CartComponent},
-  // {path:'login', component:LoginComponent},
   {path:'profile', component:ProfileComponent, canActivate:[AuthGuardGuard]},
-  {path:'appointment', component:AppointmentComponent}
+  {path:'appointment', component:AppointmentComponent},
+  {path:'contuct_us', component:ContactUsComponent},
+  {path:'view_appointments', loadChildren: () => import('./Components/Appointments/view-appointments/view-appointments.module').then(m => m.ViewAppointmentsModule), canActivate:[AuthGuardGuard]},
+  {path:'address', component:AddressComponent},
+  {path:'payment', component:PaymentComponent},
 ];
 
 @NgModule({

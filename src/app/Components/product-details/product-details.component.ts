@@ -1,9 +1,9 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MedicinesService } from 'src/app/Services/medicines.service';
-import { CartComponent } from '../cart/cart.component';
 import { CartService } from 'src/app/Services/cart.service';
 import { ToastService } from 'angular-toastify';
+import { StorageService } from 'src/app/Services/AuthServices/storage.service';
 
 @Component({
   selector: 'app-product-details',
@@ -19,9 +19,12 @@ export class ProductDetailsComponent {
   product!: any;
   mrp!: any;
 
-  @ViewChild('target') 'Target':ElementRef<any>; //To scroll to top every time enter the component
 
-  constructor(private med: MedicinesService, private activedRoute: ActivatedRoute, public cart: CartService, private route: Router, private _toastService: ToastService) { }
+  constructor(private med: MedicinesService,
+    private activedRoute: ActivatedRoute,
+    public cart: CartService,
+    private _toastService: ToastService,
+    private storage: StorageService) { }
 
   ngOnInit(): void {
     this.activedRoute.paramMap.subscribe((params) => {
@@ -34,20 +37,22 @@ export class ProductDetailsComponent {
       // console.log("Products catagory: ", this.pCatagory);
 
       this.product = this.pCatagory.medicine.filter((res: any) => this.pId === res.mid)
-      console.log("Selected product: ", this.product);
+      // console.log("Selected product: ", this.product);
     });
-
-    this.Target.nativeElement.scrollIntoView(); //To scroll to top every time enter the component
-  }
-
-  ngAfterViewInit() {
-    //Same line need both here and above in ngOnInit to work properly
-    this.Target.nativeElement.scrollIntoView(); // To scroll to top every time enter the component
   }
 
   add_to_cart(prod: any) {
-    this.cart.AddToCart(prod);
-    this.btnTxt = "ADD MORE";
-    this._toastService.info('Added to cart');
+    if (this.loggedIn()) {
+      this.cart.AddToCart(prod);
+      this.btnTxt = "ADD MORE";
+      this._toastService.info('Added to cart');
+    }
+    else {
+      alert("Please log in first")
+    }
+  }
+
+  loggedIn() {
+    return this.storage.getToken();
   }
 }

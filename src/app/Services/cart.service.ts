@@ -73,6 +73,9 @@ export class CartService {
       console.log("After pushing the item: ", this.cartItem);
 
     }
+  }
 
+  clearCart() {
+    this.cartItem.splice(0, this.cartItem.length);
   }
 }

@@ -1,24 +1,52 @@
 {
   "appointments": [
     {
+      "registered_mail": "wickjohn@gmail.com",
       "book_for": "Online Consultations",
-      "name": "Sung Jinwoo",
-      "age": "25",
+      "name": "John Wick",
+      "age": "35",
       "symptoms_testname": "Fever, Cough",
-      "phone": "9876543210",
-      "email": "sungjinwoo@gmaill.com",
-      "address": "Omnipresent",
+      "phone": "9876543211",
+      "email": "johnwick00@gmail.com",
+      "address": "City - Kolkata",
+      "bookedOn": "03-08-2023",
       "id": 1
     },
     {
+      "registered_mail": "wickjohn@gmail.com",
       "book_for": "Doctor Appointment",
-      "name": "John Wick",
-      "age": "25",
-      "symptoms_testname": "Fever",
-      "phone": "9876543211",
-      "email": "wickjohn@gmail.com",
-      "address": "City - Silda,\nState - West Bengal",
+      "name": "Caine",
+      "age": "37",
+      "symptoms_testname": "High fever, Cough",
+      "phone": "9876543212",
+      "email": "caine@gmail.com",
+      "address": "City - Kolkata",
+      "bookedOn": "03-08-2023",
       "id": 2
+    },
+    {
+      "registered_mail": "sungjinwoo@gmail.com",
+      "book_for": "Lab Test",
+      "name": "Sung Jinwoo",
+      "age": "25",
+      "symptoms_testname": "Blood Test",
+      "phone": "9876543210",
+      "email": "jinwoo@gmail.com",
+      "address": "At/P.O-Silda, Dist-Jhargram, 721515",
+      "bookedOn": "03-08-2023",
+      "id": 3
+    },
+    {
+      "registered_mail": "santanu@gmail.com",
+      "book_for": "Doctor Appointment",
+      "name": "Santanu Sahu",
+      "age": "28",
+      "symptoms_testname": "Hair loss",
+      "phone": "9876543213",
+      "email": "sahu@gmail.com",
+      "address": "Vill - Orgonda",
+      "bookedOn": "06-08-2023",
+      "id": 4
     }
   ]
 }
