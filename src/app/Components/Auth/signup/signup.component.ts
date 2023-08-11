@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs';
 import { AuthService } from 'src/app/Services/AuthServices/auth.service';
 import { StorageService } from 'src/app/Services/AuthServices/storage.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-signup',
@@ -47,10 +48,33 @@ export class SignupComponent {
       // console.log("Registered User's data: ", user);
 
       if(user.status === 200) {
-        alert("Registration Successful: "+user.message);
+        // alert("Registration Successful: "+user.message);
+        this.sweet_alert_2(user.message);
       } else {
-        alert("Registration error: "+user.message);
+        Swal.fire('Registration failed', user.message, 'error');  // sweetAlert2 - see app.module.ts
       }
     });
+  }
+
+  sweet_alert_2(msg:string) {
+    Swal.fire({
+      position: 'top',
+      icon: 'success',
+      title: 'Registration Successful',
+      html: msg,
+      timer: 3000,
+      timerProgressBar: false,
+      showClass: {
+        popup: 'animate__animated animate__fadeInDown'
+      },
+      hideClass: {
+        popup: 'animate__animated animate__fadeOutUp'
+      }
+    }).then((result) => {
+      /* Read more about handling dismissals below - https://sweetalert2.github.io/ */
+      if (result.dismiss === Swal.DismissReason.timer) {
+        console.log('I was closed by the timer _by sweetalert2')
+      }
+    })
   }
 }

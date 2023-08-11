@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/Services/AuthServices/auth.service';
 import { StorageService } from 'src/app/Services/AuthServices/storage.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-profile',
@@ -30,7 +31,51 @@ export class ProfileComponent {
   loggingOut() {
     let fname = this.storage.getData()[0].first_name;
     this.storage.destroyToken();
-    alert(fname+", you have logged out.");
+    Swal.fire({
+      position: 'top',
+      title: '<i class="fa-regular fa-face-tired fa-beat-fade fa-2xl" style="color: #ffca2c; margin-top: 50px;"></i>',
+      text: "Are you sure you want to log out?",
+      // icon: 'warning',
+      showClass: {
+        popup: 'animate__animated animate__fadeInDown'
+      },
+      hideClass: {
+        popup: 'animate__animated animate__fadeOutUp'
+      },
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#fe6869',
+      confirmButtonText: 'Yes, logout!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.storage.destroyToken();
+        this.sweet_alert_2(fname + ", you have logged out!");
+        this.storage.destroyToken();
+      }
+    })
     this.router.navigateByUrl('/home');
+  }
+
+
+  sweet_alert_2(msg:string) {
+    Swal.fire({
+      position: 'top',
+      icon: 'success',
+      // title: '<i class="fa-regular fa-face-tired fa-shake fa-2xl" style="color: #ffca2c; margin-top: 50px;"></i>',
+      html: msg,
+      timer: 3000,
+      timerProgressBar: false,
+      showClass: {
+        popup: 'animate__animated animate__fadeInDown'
+      },
+      hideClass: {
+        popup: 'animate__animated animate__fadeOutUp'
+      }
+    }).then((result) => {
+      /* Read more about handling dismissals below - https://sweetalert2.github.io/ */
+      if (result.dismiss === Swal.DismissReason.timer) {
+        console.log('I was closed by the timer _by sweetalert2')
+      }
+    })
   }
 }

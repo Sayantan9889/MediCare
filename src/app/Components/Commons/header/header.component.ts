@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/Services/AuthServices/auth.service';
 import { StorageService } from 'src/app/Services/AuthServices/storage.service';
 import { CartService } from 'src/app/Services/cart.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-header',
@@ -17,14 +17,13 @@ export class HeaderComponent {
   lname!: string;
 
   userDetails!: any;
-  img_path!: string;
+  img_path: string = "";
   baseUrl: string = "https://wtsacademy.dedicateddevelopers.us/";
   folderPath: string = "uploads/user/profile_pic/";
 
   constructor(private route: Router,
     private cartSer: CartService,
-    private storage: StorageService,
-    private authSer: AuthService
+    private storage: StorageService
   ) { }
 
   ngOnInit(): void {
@@ -48,9 +47,33 @@ export class HeaderComponent {
 
 
   log_out() {
-    this.storage.destroyToken();
-    alert(this.fname + ", you have logged out.");
-    this.route.navigate(['/home']);
+    // this.storage.destroyToken();
+    // this.sweet_alert_2(this.fname + ", you have logged out!");
+    // // this.storage.destroyToken();
+
+    Swal.fire({
+      position: 'top',
+      title: '<i class="fa-regular fa-face-tired fa-beat-fade fa-2xl" style="color: #ffca2c; margin-top: 50px;"></i>',
+      text: "Are you sure you want to log out?",
+      // icon: 'warning',
+      showClass: {
+        popup: 'animate__animated animate__fadeInDown'
+      },
+      hideClass: {
+        popup: 'animate__animated animate__fadeOutUp'
+      },
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#fe6869',
+      confirmButtonText: 'Yes, logout!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.storage.destroyToken();
+        //makig this.img_path empty will make sure that the 'if-condition' in loggedIn() [line-85] is enabled when logging in 2nd time.
+        this.img_path = "";
+        this.sweet_alert_2(this.fname + ", you have logged out!");
+      }
+    })
   }
 
   loggedIn() {
@@ -60,24 +83,34 @@ export class HeaderComponent {
       this.fname = this.data[0].first_name;
       this.lname = this.data[0].last_name;
 
-      if (this.img_path == null) {
+      if (this.img_path == "") {  // using this 'if' to stop it iterating multipe time whenever hitting a new component
         this.img_path = this.baseUrl + this.folderPath + this.data[0].proImg;
         console.log(this.img_path);
       }
-
-      // if (this.img_path == undefined) {
-      //   this.authSer.profile_details().subscribe((res: any) => {
-      //     this.userDetails = res;
-      //     // console.log("Recived profile details: ", this.userDetails);
-
-      //     this.img_path = this.baseUrl + this.folderPath + this.userDetails?.data.profile_pic;
-      //     console.log("Image path: ", this.img_path);
-
-      // })
-      // }
-
     }
     return this.token;
+  }
+
+  sweet_alert_2(msg: string) {
+    Swal.fire({
+      position: 'top',
+      icon: 'success',
+      // title: '<i class="fa-regular fa-face-tired fa-shake fa-2xl" style="color: #ffca2c; margin-top: 50px;"></i>',
+      html: msg,
+      timer: 3000,
+      timerProgressBar: false,
+      showClass: {
+        popup: 'animate__animated animate__fadeInDown'
+      },
+      hideClass: {
+        popup: 'animate__animated animate__fadeOutUp'
+      }
+    }).then((result) => {
+      /* Read more about handling dismissals below - https://sweetalert2.github.io/ */
+      if (result.dismiss === Swal.DismissReason.timer) {
+        console.log('I was closed by the timer _by sweetalert2')
+      }
+    })
   }
 
 

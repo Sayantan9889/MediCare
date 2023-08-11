@@ -84,7 +84,7 @@
                     <h3>Payment Done</h3>
                     <h5 class="text-muted">Your order is placed successfully</h5>
                 </ng-template>
-                <button type="button" class="btn btn-lg btn-success mt-5 mb-3 px-5 " data-bs-dismiss="modal">OK</button>
+                <button type="button" class="btn btn-lg btn-success mt-5 mb-3 px-5 " data-bs-dismiss="modal" routerLink="/home" [disabled]="status">OK</button>
             </div>
         </div>
     </div>

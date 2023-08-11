@@ -6,7 +6,7 @@ import { StorageService } from './storage.service';
 @Injectable({
   providedIn: 'root'
 })
-export class HttpInterceptorService {
+export class HttpInterceptorService implements HttpInterceptor {
 
   constructor(private injector:Injector) { }
 

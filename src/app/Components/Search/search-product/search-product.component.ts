@@ -4,6 +4,7 @@ import { ToastService } from 'angular-toastify';
 import { StorageService } from 'src/app/Services/AuthServices/storage.service';
 import { CartService } from 'src/app/Services/cart.service';
 import { MedicinesService } from 'src/app/Services/medicines.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-search-product',
@@ -58,7 +59,7 @@ export class SearchProductComponent {
       this._toastService.info('Added to cart');
     }
     else {
-      alert("Please log in first")
+      Swal.fire('LOGIN !', 'You need to log in first!', 'info');  // sweetAlert2 - see app.module.ts
     }
   }
 

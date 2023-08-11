@@ -20,6 +20,12 @@ export class AuthService {
   }
 
   profile_details():Observable<Registration[]> {
+    // return this.http.get<Registration[]>(this.profile_api, {
+      //   headers: new HttpHeaders({
+      //     'x-access-token': `${this.storage.getToken()}`
+      //   })
+      // });
+
     return this.http.get<Registration[]>(this.profile_api);
   }
 

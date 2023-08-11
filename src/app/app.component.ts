@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Router, RouteConfigLoadStart, RouteConfigLoadEnd } from '@angular/router';
-import { StorageService } from './Services/AuthServices/storage.service';
 
 @Component({
   selector: 'app-root',
@@ -25,7 +24,7 @@ export class AppComponent {
           this.loading = false;
           console.log("Loading ended");
 
-        }, 5600);
+        }, 2800);
       }
     });
   }

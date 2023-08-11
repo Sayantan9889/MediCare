@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { StorageService } from 'src/app/Services/AuthServices/storage.service';
 import { CartService } from 'src/app/Services/cart.service';
 
 @Component({
@@ -10,7 +12,7 @@ export class CartComponent {
   items!: any;
   GrandTotalPrice!: number;
 
-  constructor(public cart: CartService) { }
+  constructor(private cart: CartService, private storage:StorageService, private route:Router) { }
 
   ngOnInit(): void {
     this.items = this.cart.cartItem;

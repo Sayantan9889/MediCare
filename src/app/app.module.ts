@@ -31,11 +31,13 @@ import { ContactUsComponent } from './Components/Commons/contact-us/contact-us.c
 import { AddressComponent } from './Components/Buy/address/address.component';
 import { PaymentComponent } from './Components/Buy/payment/payment.component';
 
-//https://www.npmjs.com/package/angular-toastify
+// https://www.npmjs.com/package/angular-toastify
 import { ToastService, AngularToastifyModule } from 'angular-toastify';
 
-//https://www.npmjs.com/package/ngx-pagination
+// https://www.npmjs.com/package/ngx-pagination
 import { NgxPaginationModule } from 'ngx-pagination';
+
+// https://sweetalert2.github.io/   - This is an alert. I've used it to alert in AuthGuard [https://youtu.be/TtxubH6HCak]
 
 @NgModule({
   declarations: [

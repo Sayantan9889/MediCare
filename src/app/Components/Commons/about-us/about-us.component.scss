@@ -114,9 +114,11 @@ p {
         .right {
             .txt {
                 margin: 20px auto;
+
                 h5 {
                     font-weight: 600;
                 }
+
                 p {
                     text-align: left;
                 }
@@ -176,11 +178,14 @@ p {
 
     .story {
         margin-top: 10%;
+
         h3 {
             text-decoration: underline;
         }
+
         .Body {
             display: block;
+
             .left {
                 width: 100%;
                 height: auto;
@@ -198,6 +203,7 @@ p {
                 img {
                     display: none;
                 }
+
                 .txt {
                     p {
                         text-align: center;
@@ -209,5 +215,16 @@ p {
                 display: none;
             }
         }
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .banner .banner-text h1 {
+        font-size: 40px;
+    }
+}
+@media screen and (max-width: 390px) {
+    .banner .banner-text h1 {
+        font-size: 30px;
     }
 }

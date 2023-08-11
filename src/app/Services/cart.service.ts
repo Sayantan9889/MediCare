@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { OfferPipe } from '../AllPipe/offer.pipe';
+import { StorageService } from './AuthServices/storage.service';
 
 @Injectable({
   providedIn: 'root'
@@ -7,6 +8,7 @@ import { OfferPipe } from '../AllPipe/offer.pipe';
 export class CartService {
 
   public cartItem: {
+    registered_mail: string,
     mid: string,
     mName: string,
     genericName: string,
@@ -21,7 +23,7 @@ export class CartService {
     totalPrice: number
   }[] = [];
 
-  constructor(private OfferPIPE: OfferPipe) { }
+  constructor(private OfferPIPE: OfferPipe, private storage:StorageService) { }
 
 
   AddToCart(product: any) {
@@ -39,6 +41,7 @@ export class CartService {
         let data: any = cartItemsss.find((prod) => prod.mid === product.mid);
 
         let cart_prod = {
+          registered_mail: this.storage.getData()[0].email,
           ...data,
           quantity: data.quantity + 1,
           offerPrice: this.OfferPIPE.transform(product.price, 20),
@@ -50,6 +53,7 @@ export class CartService {
       }
       else {
         let cart_prod = {
+          registered_mail: this.storage.getData()[0].email,
           ...product,
           quantity: 1,
           offerPrice: this.OfferPIPE.transform(product.price, 20),
@@ -63,6 +67,7 @@ export class CartService {
     }
     else {
       let cart_prod = {
+        registered_mail: this.storage.getData()[0].email,
         ...product,
         quantity: 1,
         offerPrice: this.OfferPIPE.transform(product.price, 20),

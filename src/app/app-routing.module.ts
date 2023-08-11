@@ -29,8 +29,8 @@ const routes: Routes = [
   {path:'appointment', component:AppointmentComponent},
   {path:'contuct_us', component:ContactUsComponent},
   {path:'view_appointments', loadChildren: () => import('./Components/Appointments/view-appointments/view-appointments.module').then(m => m.ViewAppointmentsModule), canActivate:[AuthGuardGuard]},
-  {path:'address', component:AddressComponent},
-  {path:'payment', component:PaymentComponent},
+  {path:'address', component:AddressComponent, canActivate:[AuthGuardGuard]},
+  {path:'payment', component:PaymentComponent, canActivate:[AuthGuardGuard]},
 ];
 
 @NgModule({

@@ -67,6 +67,7 @@
             left: 14%;
         }
     }
+
     .appointment {
         button {
             font-size: 14px !important;
@@ -196,7 +197,7 @@
 
     button {
         position: absolute;
-        top: 84%;  // without AOS
+        top: 84%; // without AOS
         // top: -70px;
         left: 33%;
         transform: translate(-50%, -50%);
@@ -211,5 +212,24 @@
             padding: 1.1% 5.1%;
             font-size: 22px;
         }
+    }
+}
+
+@media (max-width:600px) {
+    .featureProd .card .card-body img {
+        height: 150px;
+        object-fit: contain;
+    }
+}
+@media (max-width:450px) {
+    .carousel .carousel-item img, .appointment img {
+        height: 150px;
+        object-fit: cover;
+    }
+}
+@media (max-width:285px) {
+    .featureProd .card .card-body img {
+        height: 100px;
+        object-fit: contain;
     }
 }
