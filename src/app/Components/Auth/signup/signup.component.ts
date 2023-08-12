@@ -53,6 +53,10 @@ export class SignupComponent {
       } else {
         Swal.fire('Registration failed', user.message, 'error');  // sweetAlert2 - see app.module.ts
       }
+    },
+    (err:any) => {
+      console.error(err);
+      Swal.fire("Http failure response", err.message, "error");
     });
   }
 

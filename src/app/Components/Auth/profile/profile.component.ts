@@ -12,20 +12,25 @@ import Swal from 'sweetalert2';
 export class ProfileComponent {
   userDetails!: any;
   img_path!: string;
-  baseUrl:string = "https://wtsacademy.dedicateddevelopers.us/";
-  folderPath:string="uploads/user/profile_pic/";
+  baseUrl: string = "https://wtsacademy.dedicateddevelopers.us/";
+  folderPath: string = "uploads/user/profile_pic/";
 
-  constructor(private authSer:AuthService, private storage:StorageService, private router:Router) {}
+  constructor(private authSer: AuthService, private storage: StorageService, private router: Router) { }
 
-  ngOnInit():void {
-    this.authSer.profile_details().subscribe((res:any) => {
-      this.userDetails = res;
-      // console.log("Recived profile details: ", this.userDetails);
+  ngOnInit(): void {
+    this.authSer.profile_details().subscribe(
+      (res: any) => {
+        this.userDetails = res;
+        // console.log("Recived profile details: ", this.userDetails);
 
-      this.img_path = this.baseUrl+this.folderPath+this.userDetails?.data.profile_pic;
-      // console.log("Image path: ", this.img_path);
+        this.img_path = this.baseUrl + this.folderPath + this.userDetails?.data.profile_pic;
+        // console.log("Image path: ", this.img_path);
 
-    })
+      },
+      (err) => {
+        console.error(err);
+        Swal.fire('Http failure response', err.message, 'error')
+      })
   }
 
   loggingOut() {
@@ -57,7 +62,7 @@ export class ProfileComponent {
   }
 
 
-  sweet_alert_2(msg:string) {
+  sweet_alert_2(msg: string) {
     Swal.fire({
       position: 'top',
       icon: 'success',

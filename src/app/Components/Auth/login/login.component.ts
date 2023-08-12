@@ -23,28 +23,34 @@ export class LoginComponent {
   }
 
   logIn() {
-    this.AuthSer.login_user(this.logData.value).subscribe((user: any) => {
-      // console.log("User details: ", user);
-      let userResponse = user;
+    this.AuthSer.login_user(this.logData.value).subscribe(
+      (user: any) => {
+        // console.log("User details: ", user);
+        let userResponse = user;
 
-      if (user.status === 200) {
-        // alert("Welcome " + userResponse.data.first_name + " " + userResponse.data.last_name + " !");
-        this.sweet_alert_2("Welcome " + userResponse.data.first_name + " " + userResponse.data.last_name + " !");
+        if (user.status === 200) {
+          // alert("Welcome " + userResponse.data.first_name + " " + userResponse.data.last_name + " !");
+          this.sweet_alert_2("Welcome " + userResponse.data.first_name + " " + userResponse.data.last_name + " !");
 
-        this.storage.setData(userResponse.data.first_name, userResponse.data.last_name, userResponse.data.email, userResponse.token, userResponse.data.profile_pic);
+          this.storage.setData(userResponse.data.first_name, userResponse.data.last_name, userResponse.data.email, userResponse.token, userResponse.data.profile_pic);
+        }
+        else {
+          // alert(userResponse.message);
+          Swal.fire('Try Again', userResponse.message, 'error');  // sweetAlert2 - see app.module.ts
+          this.logData.reset();
+        }
+
+
+        // document.getElementById('ModalForm')?.style.setProperty('display', 'none');
+      },
+      (error:any) => {
+        console.error(error);
+        Swal.fire('Http failure response', error.message, 'error');  // sweetAlert2 - see app.module.ts
       }
-      else {
-        // alert(userResponse.message);
-        Swal.fire('Try Again', userResponse.message, 'error');  // sweetAlert2 - see app.module.ts
-        this.logData.reset();
-      }
-
-
-      // document.getElementById('ModalForm')?.style.setProperty('display', 'none');
-    });
+      );
   }
 
-  sweet_alert_2(msg:string) {
+  sweet_alert_2(msg: string) {
     Swal.fire({
       position: 'top',
       // icon: 'success',
